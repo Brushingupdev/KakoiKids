@@ -169,8 +169,49 @@
         </div>
     </aside>
 
+  
+    <div id="product-modal-overlay" class="modal-overlay">
+        <div class="modal-content">
+            <button id="close-modal-btn" class="modal-close-btn" aria-label="Cerrar modal">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <div class="modal-gallery">
+                <div class="main-image-container">
+                    <img id="modal-main-image" src="" alt="Producto" class="modal-main-image">
+                </div>
+                <div id="modal-thumbnails" class="thumbnail-container">
+                   
+                </div>
+            </div>
+
+            <div class="modal-details">
+                <span id="modal-category" class="modal-category">Categoría</span>
+                <h2 id="modal-title" class="modal-title">Nombre del Producto</h2>
+                <div id="modal-price-container" class="modal-price-container">
+                 
+                </div>
+
+                <p id="modal-description" class="modal-description">
+                    Descripción del producto...
+                </p>
+
+                <ul class="modal-features">
+                    <li><i class="fa-solid fa-check"></i> 100% Algodón Orgánico</li>
+                    <li><i class="fa-solid fa-check"></i> Hipoalergénico</li>
+                    <li><i class="fa-solid fa-check"></i> Lavable en máquina</li>
+                </ul>
+
+                <div class="modal-actions">
+                    <button id="modal-add-to-cart" class="btn btn-primary btn-block">
+                        <i class="fa-solid fa-cart-plus"></i> Agregar al Carrito
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src="script.js"></script>
 </body>
-
 
 </html>
