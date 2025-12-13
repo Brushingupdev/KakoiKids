@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KakoiKids | Moda Infantil Minimalista</title>
+    <meta name="description" content="Ropa para niños cómoda, minimalista y con estilo.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Inter:wght@300;400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="promo-bar">
+        <span>🎄 ¡Ofertas de Navidad! Envío gratis en pedidos > S/. 150 <i class="fa-solid fa-gift"></i></span>
+    </div>
+
+    <header id="main-header">
+        <div class="container header-content">
+            <a href="#" class="logo">KakoiKids <i class="fa-solid fa-leaf"></i></a>
+
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#hero" class="active">Inicio</a></li>
+                    <li><a href="#shop">Tienda</a></li>
+                    <li><a href="#about">Nosotros</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-actions">
+                <button id="cart-btn" aria-label="Abrir carrito">
+                    <i class="fa-solid fa-bag-shopping"></i>
+                    <span id="cart-count">0</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+
+    <section id="hero">
+        <div class="container hero-container">
+            <div class="hero-text">
+                <h1>Viste a tus pequeños con <span class="highlight">amor</span> y estilo.</h1>
+                <p>Descubre nuestra nueva colección minimalista. Ropa suave, duradera y encantadora para cada aventura.
+                </p>
+                <a href="#shop" class="btn btn-primary">Ver Colección</a>
+            </div>
+            <div class="hero-image">
+                <img src="assets/images/hero.png" alt="Ropa de niños en un perchero minimalista">
+            </div>
+        </div>
+    </section>
+
+    <section id="shop" class="section-padding">
+        <div class="container">
+            <h2 class="section-title">Nuestros Tesoros</h2>
+
+            <div class="filter-bar">
+                <div class="filter-group">
+                    <label for="category-filter">Categoría:</label>
+                    <select id="category-filter">
+                        <option value="all">Todas</option>
+                        <option value="baby">Bebés (0-24m)</option>
+                        <option value="girl">Niñas</option>
+                        <option value="boy">Niños</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="size-filter">Talla:</label>
+                    <button class="filter-chip active" data-size="all">Todas</button>
+                    <button class="filter-chip" data-size="0-6m">0-6m</button>
+                    <button class="filter-chip" data-size="6-12m">6-12m</button>
+                    <button class="filter-chip" data-size="1-2y">1-2a</button>
+                    <button class="filter-chip" data-size="3-5y">3-5a</button>
+                </div>
+            </div>
+
+
+            <div id="product-grid" class="product-grid">
+
+                <div class="loader">
+                    <i class="fa-solid fa-spinner fa-spin"></i> Cargando productos...
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="features" class="section-padding bg-cream">
+        <div class="container features-grid">
+            <div class="feature-card">
+                <i class="fa-solid fa-leaf"></i>
+                <h3>Algodón Orgánico</h3>
+                <p>Suave para la piel delicada de tus niños.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fa-solid fa-truck-fast"></i>
+                <h3>Envío Rápido</h3>
+                <p>Recibe tus prendas en 24-48 horas.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fa-solid fa-heart"></i>
+                <h3>Hecho con Amor</h3>
+                <p>Diseños pensados para la felicidad.</p>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="about" class="section-padding">
+        <div class="container about-container">
+            <div class="about-content">
+                <h2 class="section-title">Nuestra Historia</h2>
+                <p class="about-lead">En <strong>KakoiKids</strong>, creemos que la infancia es una aventura mágica que
+                    merece ser vivida con comodidad y estilo.</p>
+                <div class="about-text-columns">
+                    <p>Nacimos con un sueño simple: crear un universo de moda infantil que celebre la inocencia y la
+                        alegría de los más pequeños. Nos alejamos de lo complicado para abrazar lo esencial: tejidos
+                        suaves, colores inspirados en la naturaleza y diseños que permiten el movimiento libre.</p>
+                    <p>Cada prenda de nuestra colección es seleccionada pensando en la durabilidad y el respeto por la
+                        piel sensible de tus hijos. Porque sabemos que la ropa favorita es aquella con la que pueden
+                        jugar, explorar y soñar sin límites.</p>
+                </div>
+                <div class="about-signature">
+                    <p>Con amor,</p>
+                    <p class="signature-name">El equipo de KakoiKids</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-logo">KakoiKids</div>
+            <p>&copy; 2025 KakoiKids. Todos los derechos reservados.</p>
+            <div class="social-links">
+                <a href="https://www.instagram.com/pearkakoi/" target="_blank"><i
+                        class="fa-brands fa-instagram"></i></a>
+                <a href="https://www.facebook.com/profile.php?id=61554854860348" target="_blank"><i
+                        class="fa-brands fa-facebook"></i></a>
+            </div>
+        </div>
+    </footer>
+
+
+    <div id="cart-overlay" class="cart-overlay"></div>
+    <aside id="cart-sidebar" class="cart-sidebar">
+        <div class="cart-header">
+            <h3>Tu Carrito</h3>
+            <button id="close-cart" aria-label="Cerrar carrito"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div class="cart-items" id="cart-items">
+
+            <div class="empty-cart-msg">Tu carrito está vacío. ¡Llénalo de cosas lindas!</div>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span id="cart-total-price">$0.00</span>
+            </div>
+            <button id="checkout-btn" class="btn btn-primary btn-block">Finalizar Compra</button>
+            <button id="continue-shopping-btn" class="btn btn-secondary btn-block">Seguir Comprando</button>
+        </div>
+    </aside>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
