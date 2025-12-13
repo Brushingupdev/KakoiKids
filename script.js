@@ -1,19 +1,96 @@
 
 const products = [
-    { id: 1, name: "Body Amarillo Suave", category: "baby", size: "0-6m", price: 45.00, oldPrice: 59.00, image: "assets/images/product1.png" },
-    { id: 2, name: "Vestido Floral Verano", category: "girl", size: "3-5y", price: 89.00, image: "assets/images/product2.png" },
-    { id: 3, name: "Camiseta Zorro Menta", category: "boy", size: "1-2y", price: 55.00, oldPrice: 69.00, image: "assets/images/product3.png" },
-    { id: 4, name: "Body Osito Crema", category: "baby", size: "6-12m", price: 49.00, image: "assets/images/product1.png" },
-    { id: 5, name: "Vestido Jardín Encantado", category: "girl", size: "1-2y", price: 79.00, oldPrice: 99.00, image: "assets/images/product2.png" },
-    { id: 6, name: "Camiseta Aventura Bosque", category: "boy", size: "3-5y", price: 59.00, image: "assets/images/product3.png" },
-    { id: 7, name: "Set Básico Recién Nacido", category: "baby", size: "0-6m", price: 75.00, oldPrice: 95.00, image: "assets/images/product1.png" },
-    { id: 8, name: "Camisa Lino Natural", category: "boy", size: "1-2y", price: 65.00, image: "assets/images/product3.png" },
+    {
+        id: 1,
+        name: "Body Amarillo Suave",
+        category: "baby",
+        size: "0-6m",
+        price: 45.00,
+        oldPrice: 59.00,
+        image: "assets/images/product1.png",
+        description: "Un body de algodón pima 100% orgánico, diseñado para la máxima suavidad en la piel de tu bebé. Con broches libres de níquel y un color amarillo mantequilla ideal para cualquier ocasión.",
+        images: ["assets/images/product1.png", "assets/images/product2.png", "assets/images/product3.png"]
+    },
+    {
+        id: 2,
+        name: "Vestido Floral Verano",
+        category: "girl",
+        size: "3-5y",
+        price: 89.00,
+        image: "assets/images/product2.png",
+        description: "Vestido ligero y fresco con estampado floral exclusivo. Corte holgado para permitir el juego libre y confección en lino de alta calidad.",
+        images: ["assets/images/product2.png", "assets/images/product1.png", "assets/images/product3.png"]
+    },
+    {
+        id: 3,
+        name: "Camiseta Zorro Menta",
+        category: "boy",
+        size: "1-2y",
+        price: 55.00,
+        oldPrice: 69.00,
+        image: "assets/images/product3.png",
+        description: "Camiseta divertida con ilustración de zorro. Color menta suave que combina con todo. Tejido transpirable perfecto para días activos.",
+        images: ["assets/images/product3.png", "assets/images/product1.png", "assets/images/product2.png"]
+    },
+    {
+        id: 4,
+        name: "Body Osito Crema",
+        category: "baby",
+        size: "6-12m",
+        price: 49.00,
+        image: "assets/images/product1.png",
+        description: "La prenda esencial para el armario de tu bebé. Tono crema neutro con un adorable estampado de osito. Fácil de poner y quitar.",
+        images: ["assets/images/product1.png", "assets/images/product2.png"]
+    },
+    {
+        id: 5,
+        name: "Vestido Jardín Encantado",
+        category: "girl",
+        size: "1-2y",
+        price: 79.00,
+        oldPrice: 99.00,
+        image: "assets/images/product2.png",
+        description: "Inspirado en los jardines secretos, este vestido trae la magia a la vida cotidiana. Detalles bordados a mano y tela resistente.",
+        images: ["assets/images/product2.png", "assets/images/product3.png"]
+    },
+    {
+        id: 6,
+        name: "Camiseta Aventura Bosque",
+        category: "boy",
+        size: "3-5y",
+        price: 59.00,
+        image: "assets/images/product3.png",
+        description: "Para los pequeños exploradores. Camiseta resistente con gráficos de bosque. Mantiene su forma lavado tras lavado.",
+        images: ["assets/images/product3.png", "assets/images/product1.png"]
+    },
+    {
+        id: 7,
+        name: "Set Básico Recién Nacido",
+        category: "baby",
+        size: "0-6m",
+        price: 75.00,
+        oldPrice: 95.00,
+        image: "assets/images/product1.png",
+        description: "El regalo perfecto. Incluye body, pantaloncito y gorrito. Todo en algodón hipoalergénico para los primeros días.",
+        images: ["assets/images/product1.png", "assets/images/product2.png", "assets/images/product3.png"]
+    },
+    {
+        id: 8,
+        name: "Camisa Lino Natural",
+        category: "boy",
+        size: "1-2y",
+        price: 65.00,
+        image: "assets/images/product3.png",
+        description: "Elegancia relajada. Camisa de lino en tono natural, fresca y cómoda para eventos especiales o un paseo de domingo.",
+        images: ["assets/images/product3.png", "assets/images/product2.png"]
+    },
 ];
 
 
 let cart = [];
 let currentCategory = 'all';
 let currentSize = 'all';
+let currentProduct = null;
 
 
 const WHATSAPP_NUMBER = "51983475884";
@@ -31,6 +108,15 @@ const cartTotalElement = document.getElementById('cart-total-price');
 const cartCountElement = document.getElementById('cart-count');
 const checkoutBtn = document.getElementById('checkout-btn');
 const continueShoppingBtn = document.getElementById('continue-shopping-btn');
+const modalOverlay = document.getElementById('product-modal-overlay');
+const closeModalBtn = document.getElementById('close-modal-btn');
+const modalMainImage = document.getElementById('modal-main-image');
+const modalThumbnails = document.getElementById('modal-thumbnails');
+const modalCategory = document.getElementById('modal-category');
+const modalTitle = document.getElementById('modal-title');
+const modalPriceContainer = document.getElementById('modal-price-container');
+const modalDescription = document.getElementById('modal-description');
+const modalAddToCart = document.getElementById('modal-add-to-cart');
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -41,33 +127,46 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 function setupEventListeners() {
-
+    
     categorySelect.addEventListener('change', (e) => {
         currentCategory = e.target.value;
         filterProducts();
     });
 
-
+  
     sizeButtons.forEach(btn => {
         btn.addEventListener('click', () => {
-
+            
             sizeButtons.forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
 
-
+           
             currentSize = btn.dataset.size;
             filterProducts();
         });
     });
 
-
+    
     cartBtn.addEventListener('click', openCart);
     closeCartBtn.addEventListener('click', closeCart);
     cartOverlay.addEventListener('click', closeCart);
 
-
+    
     checkoutBtn.addEventListener('click', checkout);
     continueShoppingBtn.addEventListener('click', closeCart);
+
+    
+    closeModalBtn.addEventListener('click', closeProductModal);
+    modalOverlay.addEventListener('click', (e) => {
+        if (e.target === modalOverlay) closeProductModal();
+    });
+    modalAddToCart.addEventListener('click', () => {
+        if (currentProduct) {
+            addToCart(currentProduct.id);
+            closeProductModal();
+            
+        }
+    });
 }
 
 
@@ -100,14 +199,15 @@ function renderProducts(items) {
 
         const card = document.createElement('div');
         card.className = 'product-card';
+        
         card.innerHTML = `
             ${discountBadge}
-            <div class="product-image-container">
+            <div class="product-image-container" onclick="openProductModal(${product.id})">
                 <img src="${product.image}" alt="${product.name}" class="product-image">
             </div>
             <div class="product-info">
                 <div class="product-category">${formatCategory(product.category)} • ${product.size}</div>
-                <h3 class="product-title">${product.name}</h3>
+                <h3 class="product-title" onclick="openProductModal(${product.id})" style="cursor: pointer;">${product.name}</h3>
                 <div class="product-actions">
                     ${priceDisplay}
                     <button class="add-to-cart-btn" onclick="addToCart(${product.id})">
@@ -129,6 +229,53 @@ function formatCategory(cat) {
     return map[cat] || cat;
 }
 
+
+function openProductModal(productId) {
+    const product = products.find(p => p.id === productId);
+    if (!product) return;
+
+    currentProduct = product;
+
+    
+    modalMainImage.src = product.image;
+    modalCategory.textContent = `${formatCategory(product.category)} • ${product.size}`;
+    modalTitle.textContent = product.name;
+    modalDescription.textContent = product.description || "Descripción del producto no disponible.";
+
+    const hasDiscount = product.oldPrice && product.oldPrice > product.price;
+    modalPriceContainer.innerHTML = hasDiscount
+        ? `<span class="old-price">S/. ${product.oldPrice.toFixed(2)}</span>
+           <span class="sale-price">S/. ${product.price.toFixed(2)}</span>`
+        : `<span class="product-price" style="font-size: 1.5rem;">S/. ${product.price.toFixed(2)}</span>`;
+
+    
+    modalThumbnails.innerHTML = '';
+    const images = product.images || [product.image];
+    images.forEach((imgSrc, index) => {
+        const thumb = document.createElement('img');
+        thumb.src = imgSrc;
+        thumb.className = `thumbnail ${index === 0 ? 'active' : ''}`;
+        thumb.onclick = () => {
+            modalMainImage.src = imgSrc;
+            document.querySelectorAll('.thumbnail').forEach(t => t.classList.remove('active'));
+            thumb.classList.add('active');
+        };
+        modalThumbnails.appendChild(thumb);
+    });
+
+   
+    modalOverlay.classList.add('open');
+    document.body.style.overflow = 'hidden'; 
+}
+
+function closeProductModal() {
+    modalOverlay.classList.remove('open');
+    document.body.style.overflow = ''; 
+    currentProduct = null;
+}
+
+
+window.openProductModal = openProductModal; 
 
 function createSnowflakes() {
     const snowContainer = document.createElement('div');
@@ -241,7 +388,7 @@ function closeCart() {
     cartOverlay.classList.remove('open');
 }
 
-
+/* Checkout via WhatsApp */
 function checkout() {
     if (cart.length === 0) {
         alert("Tu carrito está vacío. Agrega productos para realizar un pedido.");
@@ -270,3 +417,5 @@ function checkout() {
 window.addToCart = addToCart;
 window.removeFromCart = removeFromCart;
 window.changeQuantity = changeQuantity;
+
+
