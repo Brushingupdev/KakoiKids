@@ -249,19 +249,105 @@ function addToCartFromModal() {
     }
 }
 
+
+function expandImage() {
+    const mainImage = document.getElementById('modal-main-image');
+    const lightbox = document.getElementById('image-lightbox');
+    const lightboxImage = document.getElementById('lightbox-image');
+
+    if (mainImage && lightbox && lightboxImage) {
+        lightboxImage.src = mainImage.src;
+        lightboxImage.alt = mainImage.alt;
+        lightbox.classList.remove('hidden');
+        lightbox.classList.add('flex');
+    }
+}
+
+
+function closeLightbox() {
+    const lightbox = document.getElementById('image-lightbox');
+    if (lightbox) {
+        lightbox.classList.add('hidden');
+        lightbox.classList.remove('flex');
+    }
+}
+
 document.getElementById('product-modal')?.addEventListener('click', (e) => {
     if (e.target.id === 'product-modal') {
         closeProductModal();
     }
 });
 
+let currentSizeFilter = 'all';
+let currentCategoryMainFilter = 'all';
+
+function applyProductFilters() {
+    const productCards = document.querySelectorAll('#shop [data-product-size]');
+
+    productCards.forEach(card => {
+        const productSize = card.getAttribute('data-product-size') || '';
+        const productCategory = card.getAttribute('data-product-category') || '';
+
+        const matchesSize = currentSizeFilter === 'all' || productSize.includes(currentSizeFilter);
+
+        const matchesCategory = currentCategoryMainFilter === 'all' ||
+            productCategory.toLowerCase().includes(currentCategoryMainFilter.toLowerCase());
+        if (matchesSize && matchesCategory) {
+            card.style.display = '';
+            card.classList.remove('hidden');
+        } else {
+            card.style.display = 'none';
+            card.classList.add('hidden');
+        }
+    });
+
+    const visibleProducts = Array.from(productCards).filter(card => !card.classList.contains('hidden'));
+    visibleProducts.forEach((card, index) => {
+        card.style.animation = 'none';
+        setTimeout(() => {
+            card.style.animation = `fadeIn 0.4s ease-out ${index * 0.05}s forwards`;
+        }, 10);
+    });
+
+    showNoProductsMessage(visibleProducts.length === 0);
+}
+
+function showNoProductsMessage(show) {
+    const grid = document.querySelector('#shop .grid');
+    if (!grid) return;
+
+    let noProductsMsg = document.getElementById('no-products-msg');
+
+    if (show) {
+        if (!noProductsMsg) {
+            noProductsMsg = document.createElement('div');
+            noProductsMsg.id = 'no-products-msg';
+            noProductsMsg.className = 'col-span-full text-center py-12';
+            noProductsMsg.innerHTML = `
+                <span class="material-icons text-6xl text-gray-300 dark:text-gray-600 mb-4">search_off</span>
+                <p class="text-xl font-bold text-gray-600 dark:text-gray-300 mb-2">No se encontraron productos</p>
+                <p class="text-sm text-gray-500">Prueba con otros filtros</p>
+            `;
+            grid.appendChild(noProductsMsg);
+        }
+        noProductsMsg.style.display = 'block';
+    } else if (noProductsMsg) {
+        noProductsMsg.style.display = 'none';
+    }
+}
+
+function filterByCategory(category) {
+    currentCategoryMainFilter = category;
+    applyProductFilters();
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     const sizeFilters = document.querySelectorAll('.size-filter');
-    const productCards = document.querySelectorAll('[data-product-size]');
 
     sizeFilters.forEach(filter => {
         filter.addEventListener('click', () => {
             const selectedSize = filter.getAttribute('data-size');
+            currentSizeFilter = selectedSize;
 
             sizeFilters.forEach(btn => {
                 btn.classList.remove('bg-primary', 'text-white');
@@ -270,28 +356,7 @@ document.addEventListener('DOMContentLoaded', () => {
             filter.classList.remove('bg-gray-100', 'dark:bg-gray-800', 'text-gray-600', 'dark:text-gray-300');
             filter.classList.add('bg-primary', 'text-white');
 
-            productCards.forEach(card => {
-                const productSize = card.getAttribute('data-product-size');
-
-                if (selectedSize === 'all') {
-                    card.style.display = '';
-                    card.classList.remove('hidden');
-                } else if (productSize && productSize.includes(selectedSize)) {
-                    card.style.display = '';
-                    card.classList.remove('hidden');
-                } else {
-                    card.style.display = 'none';
-                    card.classList.add('hidden');
-                }
-            });
-
-            const visibleProducts = Array.from(productCards).filter(card => !card.classList.contains('hidden'));
-            visibleProducts.forEach((card, index) => {
-                card.style.animation = 'none';
-                setTimeout(() => {
-                    card.style.animation = `fadeIn 0.5s ease-in-out ${index * 0.1}s forwards`;
-                }, 10);
-            });
+            applyProductFilters();
         });
     });
 });
@@ -307,14 +372,14 @@ const catalogProducts = [
     {
         title: 'Pantalón Denim Suave',
         category: 'NIÑO • 3-5Y',
-        description: 'Pantalón de mezclilla suave y flexible, perfecto para el uso diario. Cintura elástica ajustable para mayor comodidad.',
+        description: 'Mezclilla suave con cintura elástica.',
         price: 79.00,
         image: 'https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?w=400&h=400&fit=crop'
     },
     {
         title: 'Falda Tul Rosa',
         category: 'NIÑA • 2-4Y',
-        description: 'Hermosa falda de tul en tono rosa pastel. Ideal para ocasiones especiales o para sentirse como una princesa todos los días.',
+        description: 'Tul rosa pastel, ideal para ocasiones especiales.',
         price: 69.00,
         oldPrice: 89.00,
         image: 'https://images.unsplash.com/photo-1518831959646-742c3a14ebf7?w=400&h=400&fit=crop'
@@ -322,21 +387,21 @@ const catalogProducts = [
     {
         title: 'Conjunto Deportivo',
         category: 'NIÑO • 4-6Y',
-        description: 'Set deportivo de dos piezas: sudadera y pantalón. Tejido transpirable perfecto para jugar y hacer ejercicio.',
+        description: 'Set sudadera + pantalón transpirable.',
         price: 95.00,
         image: 'https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?w=400&h=400&fit=crop'
     },
     {
         title: 'Pijama Estrellitas',
         category: 'BEBÉ • 6-12M',
-        description: 'Pijama de algodón orgánico con estampado de estrellitas. Suave y cómodo para un sueño reparador.',
+        description: 'Algodón orgánico suave y cómodo.',
         price: 55.00,
         image: 'https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?w=400&h=400&fit=crop'
     },
     {
         title: 'Chaqueta Acolchada',
         category: 'NIÑA • 3-5Y',
-        description: 'Chaqueta ligera acolchada, perfecta para días frescos. Resistente al agua y con capucha desmontable.',
+        description: 'Ligera y resistente al agua.',
         price: 120.00,
         oldPrice: 150.00,
         image: 'https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=400&h=400&fit=crop'
@@ -344,21 +409,21 @@ const catalogProducts = [
     {
         title: 'Shorts Playeros',
         category: 'NIÑO • 2-4Y',
-        description: 'Shorts cómodos de secado rápido, ideales para la playa o piscina. Colores vibrantes y diseño divertido.',
+        description: 'Secado rápido, ideal para playa.',
         price: 45.00,
         image: 'https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?w=400&h=400&fit=crop'
     },
     {
         title: 'Vestido Lunares',
         category: 'NIÑA • 1-3Y',
-        description: 'Vestido clásico con estampado de lunares. Tela suave y transpirable con lazo decorativo en la cintura.',
+        description: 'Clásico con lazo en la cintura.',
         price: 75.00,
         image: 'https://images.unsplash.com/photo-1596783074918-c84cb06531ca?w=400&h=400&fit=crop'
     },
     {
         title: 'Suéter Rayas',
         category: 'NIÑO • 3-5Y',
-        description: 'Suéter de punto con rayas horizontales. Perfecto para días frescos, suave y abrigador.',
+        description: 'Punto suave y abrigador.',
         price: 85.00,
         oldPrice: 100.00,
         image: 'https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?w=400&h=400&fit=crop'
@@ -366,28 +431,28 @@ const catalogProducts = [
     {
         title: 'Leggings Flores',
         category: 'NIÑA • 2-4Y',
-        description: 'Leggings elásticos con estampado floral. Cómodos y versátiles para combinar con cualquier prenda.',
+        description: 'Elásticos con estampado floral.',
         price: 39.00,
         image: 'https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?w=400&h=400&fit=crop'
     },
     {
         title: 'Camisa Cuadros',
         category: 'NIÑO • 4-6Y',
-        description: 'Camisa de algodón a cuadros, perfecta para ocasiones formales o casuales. Botones de madera naturales.',
+        description: 'Algodón con botones de madera.',
         price: 65.00,
         image: 'https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=400&h=400&fit=crop'
     },
     {
         title: 'Enterizo Conejito',
         category: 'BEBÉ • 0-6M',
-        description: 'Adorable enterizo con diseño de conejito. Cierre frontal completo para facilitar el cambio de pañal.',
+        description: 'Adorable diseño, fácil de cambiar.',
         price: 59.00,
         image: 'https://images.unsplash.com/photo-1522771930-78848d9293e8?w=400&h=400&fit=crop'
     },
     {
         title: 'Gorro Pompón',
         category: 'NIÑO/NIÑA • 1-5Y',
-        description: 'Gorro tejido con pompón decorativo. Suave y abrigador, disponible en varios colores.',
+        description: 'Tejido suave con pompón decorativo.',
         price: 29.00,
         oldPrice: 35.00,
         image: 'https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?w=400&h=400&fit=crop'
@@ -414,15 +479,16 @@ function renderCatalogProducts(products) {
 
     products.forEach(product => {
         const productCard = `
-                    <div class="bg-card-light dark:bg-card-dark rounded-xl overflow-hidden shadow-soft hover:shadow-xl transition-all duration-300 border border-gray-100 dark:border-gray-800 flex flex-col">
-                        <div class="relative aspect-square overflow-hidden bg-gray-100 dark:bg-gray-800">
+                    <div class="catalog-product-card bg-card-light dark:bg-card-dark rounded-xl overflow-hidden shadow-soft hover:shadow-xl transition-all duration-300 border border-gray-100 dark:border-gray-800">
+                        <div class="catalog-product-image relative aspect-square overflow-hidden bg-gray-100 dark:bg-gray-800 cursor-pointer" onclick="expandCatalogImage('${product.image}', '${product.title}')">
                             ${product.oldPrice ? `<span class="absolute top-2 left-2 bg-accent-red text-white text-xs font-bold px-2 py-1 rounded z-10">-${Math.round((1 - product.price / product.oldPrice) * 100)}%</span>` : ''}
                             <img src="${product.image}" alt="${product.title}" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+                            <div class="catalog-zoom-icon"></div>
                         </div>
-                        <div class="p-4 flex flex-col flex-grow">
+                        <div class="catalog-product-info p-4 flex flex-col flex-grow">
                             <p class="text-xs font-bold text-gray-400 dark:text-gray-500 mb-1 uppercase tracking-wide">${product.category}</p>
                             <h3 class="text-base font-bold text-gray-800 dark:text-white mb-2">${product.title}</h3>
-                            <p class="text-sm text-gray-600 dark:text-gray-400 mb-3 line-clamp-2">${product.description}</p>
+                            <p class="catalog-description text-sm text-gray-600 dark:text-gray-400 mb-3 line-clamp-2">${product.description}</p>
                             <div class="mt-auto flex items-center justify-between">
                                 <div>
                                     ${product.oldPrice ? `<span class="text-xs text-gray-400 line-through mr-1">S/. ${product.oldPrice.toFixed(2)}</span>` : ''}
@@ -438,6 +504,18 @@ function renderCatalogProducts(products) {
                 `;
         container.innerHTML += productCard;
     });
+}
+
+function expandCatalogImage(imageSrc, imageAlt) {
+    const lightbox = document.getElementById('image-lightbox');
+    const lightboxImage = document.getElementById('lightbox-image');
+
+    if (lightbox && lightboxImage) {
+        lightboxImage.src = imageSrc;
+        lightboxImage.alt = imageAlt;
+        lightbox.classList.remove('hidden');
+        lightbox.classList.add('flex');
+    }
 }
 
 function getFilteredProducts() {
