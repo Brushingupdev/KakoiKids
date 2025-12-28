@@ -1,23 +1,23 @@
-// Configuración de TailwindCSS para KakoiKids
+
 tailwind.config = {
     darkMode: "class",
     theme: {
         extend: {
             colors: {
-                primary: "#8BC399", // Soft green from the screenshot
+                primary: "#8BC399", 
                 primary_dark: "#6da37a",
-                secondary: "#F28C8C", // Pinkish accent
-                "background-light": "#FDF8E9", // Creamy background
-                "background-dark": "#1a1a1a", // Dark mode background
+                secondary: "#F28C8C", 
+                "background-light": "#FDF8E9", 
+                "background-dark": "#1a1a1a", 
                 "card-light": "#FFFFFF",
                 "card-dark": "#2d2d2d",
                 "text-light": "#4A4A4A",
                 "text-dark": "#E0E0E0",
-                "accent-red": "#E65561", // Sale tag red
+                "accent-red": "#E65561", 
             },
             fontFamily: {
-                display: ["Fredoka", "sans-serif"], // Friendly rounded font for headings
-                body: ["Nunito Sans", "sans-serif"], // Clean readable font for body
+                display: ["Fredoka", "sans-serif"], 
+                body: ["Nunito Sans", "sans-serif"], 
             },
             borderRadius: {
                 DEFAULT: "12px",
@@ -30,3 +30,4 @@ tailwind.config = {
         },
     },
 };
+
