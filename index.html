@@ -279,12 +279,12 @@
                     <div class="flex items-center gap-2">
                         <span
                             class="text-sm font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider">Categoría:</span>
-                        <select
+                        <select id="category-filter" onchange="filterByCategory(this.value)"
                             class="form-select border-none bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-200 rounded-lg py-1 px-4 focus:ring-2 focus:ring-primary text-sm font-medium">
-                            <option>Todas</option>
-                            <option>Niños</option>
-                            <option>Niñas</option>
-                            <option>Bebés</option>
+                            <option value="all">Todas</option>
+                            <option value="niño">Niños</option>
+                            <option value="niña">Niñas</option>
+                            <option value="bebé">Bebés</option>
                         </select>
                     </div>
                     <div class="h-6 w-px bg-gray-200 dark:bg-gray-700 hidden md:block"></div>
@@ -304,7 +304,7 @@
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
 
 
-                    <div data-product-size="4Y"
+                    <div data-product-size="4Y" data-product-category="niño"
                         class="group bg-card-light dark:bg-card-dark rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2 cursor-pointer flex flex-col border border-gray-100 dark:border-gray-700"
                         onclick="openProductModal({
                             title: 'Polo MNARA',
@@ -328,7 +328,9 @@
                             <div
                                 class="text-xs font-bold text-gray-400 dark:text-gray-500 mb-1 uppercase tracking-wide">
                                 Niño • 4Y</div>
-                            <h3 class="text-lg font-bold text-gray-800 dark:text-white mb-2">Polo MNARA</h3>
+                            <h3 class="text-lg font-bold text-gray-800 dark:text-white mb-1">Polo MNARA</h3>
+                            <p class="product-description text-xs text-gray-500 dark:text-gray-400 mb-3 line-clamp-2">
+                                Polo con mangas de diseño geométrico. 100% algodón orgánico.</p>
                             <div class="mt-auto flex items-end justify-between">
                                 <div>
                                     <span class="text-xl font-bold text-primary">S/. 59.00</span>
@@ -344,7 +346,7 @@
                     </div>
 
 
-                    <div data-product-size="6Y"
+                    <div data-product-size="6Y" data-product-category="niño"
                         class="group bg-card-light dark:bg-card-dark rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2 cursor-pointer flex flex-col border border-gray-100 dark:border-gray-700"
                         onclick="openProductModal({
                             title: 'Polo MRAYSM',
@@ -368,7 +370,9 @@
                             <div
                                 class="text-xs font-bold text-gray-400 dark:text-gray-500 mb-1 uppercase tracking-wide">
                                 Niño • 6Y</div>
-                            <h3 class="text-lg font-bold text-gray-800 dark:text-white mb-2">Polo MRAYSM</h3>
+                            <h3 class="text-lg font-bold text-gray-800 dark:text-white mb-1">Polo MRAYSM</h3>
+                            <p class="product-description text-xs text-gray-500 dark:text-gray-400 mb-3 line-clamp-2">
+                                Diseño moderno color vanilla. Suave y transpirable.</p>
                             <div class="mt-auto flex items-end justify-between">
                                 <div>
                                     <span class="text-xl font-bold text-primary">S/. 59.00</span>
@@ -384,7 +388,7 @@
                     </div>
 
 
-                    <div data-product-size="4Y"
+                    <div data-product-size="4Y" data-product-category="niño"
                         class="group bg-card-light dark:bg-card-dark rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2 cursor-pointer flex flex-col border border-gray-100 dark:border-gray-700"
                         onclick="openProductModal({
                             title: 'Polo MRAYS',
@@ -408,7 +412,9 @@
                             <div
                                 class="text-xs font-bold text-gray-400 dark:text-gray-500 mb-1 uppercase tracking-wide">
                                 Niño • 4Y</div>
-                            <h3 class="text-lg font-bold text-gray-800 dark:text-white mb-2">Polo MRAYS</h3>
+                            <h3 class="text-lg font-bold text-gray-800 dark:text-white mb-1">Polo MRAYS</h3>
+                            <p class="product-description text-xs text-gray-500 dark:text-gray-400 mb-3 line-clamp-2">
+                                Polo bicolor blanco con mangas vanilla. Fresco y cómodo.</p>
                             <div class="mt-auto flex items-end justify-between">
                                 <div>
                                     <span class="text-xl font-bold text-primary">S/. 59.00</span>
@@ -424,7 +430,7 @@
                     </div>
 
 
-                    <div data-product-size="4Y"
+                    <div data-product-size="4Y" data-product-category="niño"
                         class="group bg-card-light dark:bg-card-dark rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2 cursor-pointer flex flex-col border border-gray-100 dark:border-gray-700"
                         onclick="openProductModal({
                             title: 'Polo MPLOM 4Y',
@@ -448,7 +454,9 @@
                             <div
                                 class="text-xs font-bold text-gray-400 dark:text-gray-500 mb-1 uppercase tracking-wide">
                                 Niño • 4Y</div>
-                            <h3 class="text-lg font-bold text-gray-800 dark:text-white mb-2">Polo MPLOM 4Y</h3>
+                            <h3 class="text-lg font-bold text-gray-800 dark:text-white mb-1">Polo MPLOM 4Y</h3>
+                            <p class="product-description text-xs text-gray-500 dark:text-gray-400 mb-3 line-clamp-2">
+                                Diseño elegante color vanilla. 100% algodón orgánico.</p>
                             <div class="mt-auto flex items-end justify-between">
                                 <div>
                                     <span class="text-xl font-bold text-primary">S/. 59.00</span>
@@ -464,7 +472,7 @@
                     </div>
 
 
-                    <div data-product-size="6Y"
+                    <div data-product-size="6Y" data-product-category="niño"
                         class="group bg-card-light dark:bg-card-dark rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2 cursor-pointer flex flex-col border border-gray-100 dark:border-gray-700"
                         onclick="openProductModal({
                             title: 'Polo MPLOM 6Y',
@@ -488,7 +496,9 @@
                             <div
                                 class="text-xs font-bold text-gray-400 dark:text-gray-500 mb-1 uppercase tracking-wide">
                                 Niño • 6Y</div>
-                            <h3 class="text-lg font-bold text-gray-800 dark:text-white mb-2">Polo MPLOM 6Y</h3>
+                            <h3 class="text-lg font-bold text-gray-800 dark:text-white mb-1">Polo MPLOM 6Y</h3>
+                            <p class="product-description text-xs text-gray-500 dark:text-gray-400 mb-3 line-clamp-2">
+                                Polo elegante en talla 6Y. Suave y transpirable.</p>
                             <div class="mt-auto flex items-end justify-between">
                                 <div>
                                     <span class="text-xl font-bold text-primary">S/. 59.00</span>
@@ -504,7 +514,7 @@
                     </div>
 
 
-                    <div data-product-size="4Y"
+                    <div data-product-size="4Y" data-product-category="niño"
                         class="group bg-card-light dark:bg-card-dark rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2 cursor-pointer flex flex-col border border-gray-100 dark:border-gray-700"
                         onclick="openProductModal({
                             title: 'Polo MFLOR 4Y',
@@ -528,7 +538,9 @@
                             <div
                                 class="text-xs font-bold text-gray-400 dark:text-gray-500 mb-1 uppercase tracking-wide">
                                 Niño • 4Y</div>
-                            <h3 class="text-lg font-bold text-gray-800 dark:text-white mb-2">Polo MFLOR 4Y</h3>
+                            <h3 class="text-lg font-bold text-gray-800 dark:text-white mb-1">Polo MFLOR 4Y</h3>
+                            <p class="product-description text-xs text-gray-500 dark:text-gray-400 mb-3 line-clamp-2">
+                                Diseño floral moderno. 100% algodón orgánico.</p>
                             <div class="mt-auto flex items-end justify-between">
                                 <div>
                                     <span class="text-xl font-bold text-primary">S/. 59.00</span>
@@ -544,7 +556,7 @@
                     </div>
 
 
-                    <div data-product-size="6Y"
+                    <div data-product-size="6Y" data-product-category="niño"
                         class="group bg-card-light dark:bg-card-dark rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2 cursor-pointer flex flex-col border border-gray-100 dark:border-gray-700"
                         onclick="openProductModal({
                             title: 'Polo MFLOR 6Y',
@@ -568,7 +580,9 @@
                             <div
                                 class="text-xs font-bold text-gray-400 dark:text-gray-500 mb-1 uppercase tracking-wide">
                                 Niño • 6Y</div>
-                            <h3 class="text-lg font-bold text-gray-800 dark:text-white mb-2">Polo MFLOR 6Y</h3>
+                            <h3 class="text-lg font-bold text-gray-800 dark:text-white mb-1">Polo MFLOR 6Y</h3>
+                            <p class="product-description text-xs text-gray-500 dark:text-gray-400 mb-3 line-clamp-2">
+                                Estilo floral único en talla grande. Suave y cómodo.</p>
                             <div class="mt-auto flex items-end justify-between">
                                 <div>
                                     <span class="text-xl font-bold text-primary">S/. 59.00</span>
@@ -584,7 +598,7 @@
                     </div>
 
 
-                    <div data-product-size="2Y"
+                    <div data-product-size="2Y" data-product-category="niño"
                         class="group bg-card-light dark:bg-card-dark rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2 cursor-pointer flex flex-col border border-gray-100 dark:border-gray-700"
                         onclick="openProductModal({
                             title: 'Polo RDM 2Y',
@@ -608,7 +622,9 @@
                             <div
                                 class="text-xs font-bold text-gray-400 dark:text-gray-500 mb-1 uppercase tracking-wide">
                                 Niño • 2Y</div>
-                            <h3 class="text-lg font-bold text-gray-800 dark:text-white mb-2">Polo RDM 2Y</h3>
+                            <h3 class="text-lg font-bold text-gray-800 dark:text-white mb-1">Polo RDM 2Y</h3>
+                            <p class="product-description text-xs text-gray-500 dark:text-gray-400 mb-3 line-clamp-2">
+                                Diseño clásico para los más pequeños. Muy suave.</p>
                             <div class="mt-auto flex items-end justify-between">
                                 <div>
                                     <span class="text-xl font-bold text-primary">S/. 59.00</span>
@@ -624,7 +640,7 @@
                     </div>
 
 
-                    <div data-product-size="6Y"
+                    <div data-product-size="6Y" data-product-category="niño"
                         class="group bg-card-light dark:bg-card-dark rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2 cursor-pointer flex flex-col border border-gray-100 dark:border-gray-700"
                         onclick="openProductModal({
                             title: 'Polo RDM 6Y',
@@ -648,7 +664,9 @@
                             <div
                                 class="text-xs font-bold text-gray-400 dark:text-gray-500 mb-1 uppercase tracking-wide">
                                 Niño • 6Y</div>
-                            <h3 class="text-lg font-bold text-gray-800 dark:text-white mb-2">Polo RDM 6Y</h3>
+                            <h3 class="text-lg font-bold text-gray-800 dark:text-white mb-1">Polo RDM 6Y</h3>
+                            <p class="product-description text-xs text-gray-500 dark:text-gray-400 mb-3 line-clamp-2">
+                                Clásico y elegante. Perfecto para el día a día.</p>
                             <div class="mt-auto flex items-end justify-between">
                                 <div>
                                     <span class="text-xl font-bold text-primary">S/. 59.00</span>
@@ -662,7 +680,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="group bg-card-light dark:bg-card-dark rounded-2xl overflow-hidden shadow-soft hover:shadow-xl transition-all duration-300 border border-gray-100 dark:border-gray-800 flex flex-col cursor-pointer"
+                    <div data-product-size="3-5Y" data-product-category="niña"
+                        class="group bg-card-light dark:bg-card-dark rounded-2xl overflow-hidden shadow-soft hover:shadow-xl transition-all duration-300 border border-gray-100 dark:border-gray-800 flex flex-col cursor-pointer"
                         onclick="openProductModal({
                             category: 'NIÑA • 3-5Y',
                             title: 'Vestido Floral Verano',
@@ -681,7 +700,9 @@
                             <div
                                 class="text-xs font-bold text-gray-400 dark:text-gray-500 mb-1 uppercase tracking-wide">
                                 Niña • 3-5y</div>
-                            <h3 class="text-lg font-bold text-gray-800 dark:text-white mb-2">Vestido Floral Verano</h3>
+                            <h3 class="text-lg font-bold text-gray-800 dark:text-white mb-1">Vestido Floral Verano</h3>
+                            <p class="product-description text-xs text-gray-500 dark:text-gray-400 mb-3 line-clamp-2">
+                                Vestido ligero con estampado floral. Ideal para días soleados.</p>
                             <div class="mt-auto flex items-end justify-between">
                                 <div>
                                     <span class="text-xl font-bold text-primary">S/. 89.00</span>
@@ -695,7 +716,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="group bg-card-light dark:bg-card-dark rounded-2xl overflow-hidden shadow-soft hover:shadow-xl transition-all duration-300 border border-gray-100 dark:border-gray-800 flex flex-col cursor-pointer"
+                    <div data-product-size="1-2Y" data-product-category="niño"
+                        class="group bg-card-light dark:bg-card-dark rounded-2xl overflow-hidden shadow-soft hover:shadow-xl transition-all duration-300 border border-gray-100 dark:border-gray-800 flex flex-col cursor-pointer"
                         onclick="openProductModal({
                             category: 'NIÑO • 1-2Y',
                             title: 'Camiseta Zorro Menta',
@@ -733,7 +755,8 @@
                         </div>
                     </div>
 
-                    <div class="group bg-card-light dark:bg-card-dark rounded-2xl overflow-hidden shadow-soft hover:shadow-xl transition-all duration-300 border border-gray-100 dark:border-gray-800 flex flex-col cursor-pointer"
+                    <div data-product-size="1-2Y" data-product-category="niña"
+                        class="group bg-card-light dark:bg-card-dark rounded-2xl overflow-hidden shadow-soft hover:shadow-xl transition-all duration-300 border border-gray-100 dark:border-gray-800 flex flex-col cursor-pointer"
                         onclick="openProductModal({
                             category: 'NIÑA • 1-2Y',
                             title: 'Vestido Jardín Encantado',
@@ -771,7 +794,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="group bg-card-light dark:bg-card-dark rounded-2xl overflow-hidden shadow-soft hover:shadow-xl transition-all duration-300 border border-gray-100 dark:border-gray-800 flex flex-col cursor-pointer"
+                    <div data-product-size="3-5Y" data-product-category="niño"
+                        class="group bg-card-light dark:bg-card-dark rounded-2xl overflow-hidden shadow-soft hover:shadow-xl transition-all duration-300 border border-gray-100 dark:border-gray-800 flex flex-col cursor-pointer"
                         onclick="openProductModal({
                             category: 'NIÑO • 3-5Y',
                             title: 'Camiseta Aventura Bosque',
@@ -1146,7 +1170,8 @@
 
                 <div class="space-y-4">
 
-                    <div class="bg-white dark:bg-gray-100 rounded-2xl overflow-hidden aspect-square">
+                    <div class="bg-white dark:bg-gray-100 rounded-2xl overflow-hidden aspect-square cursor-pointer"
+                        onclick="expandImage()">
                         <img id="modal-main-image" src="" alt="" class="w-full h-full object-contain">
                     </div>
 
@@ -1883,9 +1908,19 @@
         </div>
     </a>
 
+
+    <div id="image-lightbox" class="fixed inset-0 bg-black/95 z-[200] hidden items-center justify-center p-4"
+        onclick="closeLightbox()">
+        <button onclick="closeLightbox()"
+            class="absolute top-4 right-4 w-10 h-10 bg-white/20 hover:bg-white/30 rounded-full flex items-center justify-center transition-colors z-10">
+            <span class="material-icons text-white">close</span>
+        </button>
+        <img id="lightbox-image" src="" alt="Imagen del producto"
+            class="max-w-full max-h-[90vh] object-contain rounded-lg shadow-2xl" onclick="event.stopPropagation()">
+    </div>
+
 </body>
 
 </html>
 
-</html>
 
