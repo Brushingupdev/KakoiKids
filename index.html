@@ -2,216 +2,1890 @@
 <html lang="es">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KakoiKids | Moda Infantil Minimalista</title>
-    <meta name="description" content="Ropa para niños cómoda, minimalista y con estilo.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>KakoiKids - Ropa para niños con estilo</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,container-queries"></script>
     <link
-        href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Inter:wght@300;400;500&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
+        href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&amp;family=Nunito+Sans:wght@300;400;600;700;800&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <script src="tailwind.config.js"></script>
+    <link rel="stylesheet" href="styles.css" />
 </head>
 
-<body>
-    <div class="promo-bar">
-        <span>🎄 ¡Ofertas de Navidad! Envío gratis en pedidos > S/. 50 <i class="fa-solid fa-gift"></i></span>
+<body
+    class="bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark transition-colors duration-300 min-h-screen flex flex-col">
+    <div class="fixed bottom-6 right-6 z-[60] flex flex-col gap-3 pointer-events-none" id="toast-container"></div>
+
+    <div class="relative overflow-hidden bg-gradient-to-r from-purple-600 via-pink-500 to-red-500 text-white">
+        <div class="absolute inset-0 opacity-20">
+            <div
+                class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMzAiIGN5PSIzMCIgcj0iMiIgZmlsbD0id2hpdGUiLz48L3N2Zz4=')]">
+            </div>
+        </div>
+
+        <div class="relative py-3 overflow-hidden">
+            <div class="marquee-content">
+                <div class="marquee-item">
+                    <span class="text-2xl">🎉</span>
+                    <span class="font-bold text-base">¡FELIZ AÑO NUEVO 2026!</span>
+                    <span class="text-2xl">🎉</span>
+
+                    <div class="h-6 w-px bg-white/40 mx-4"></div>
+
+                    <div class="flex items-center gap-1.5 bg-white/20 px-3 py-1 rounded-full backdrop-blur-sm">
+                        <span class="material-icons text-sm">local_shipping</span>
+                        <span class="font-semibold text-sm">Envío GRATIS +S/.50</span>
+                    </div>
+
+                    <div class="flex items-center gap-1.5 bg-white/20 px-3 py-1 rounded-full backdrop-blur-sm">
+                        <span class="material-icons text-sm">discount</span>
+                        <span class="font-semibold text-sm">20% OFF en toda la tienda</span>
+                    </div>
+
+                    <div
+                        class="flex items-center gap-1.5 bg-yellow-400 text-purple-900 px-3 py-1 rounded-full font-bold shadow-lg">
+                        <span class="material-icons text-sm animate-spin">stars</span>
+                        <span class="text-sm">¡Ofertas hasta agotar stock!</span>
+                    </div>
+                </div>
+
+                <div class="marquee-item">
+                    <span class="text-2xl">🎉</span>
+                    <span class="font-bold text-base">¡FELIZ AÑO NUEVO 2026!</span>
+                    <span class="text-2xl">🎉</span>
+
+                    <div class="h-6 w-px bg-white/40 mx-4"></div>
+
+                    <div class="flex items-center gap-1.5 bg-white/20 px-3 py-1 rounded-full backdrop-blur-sm">
+                        <span class="material-icons text-sm">local_shipping</span>
+                        <span class="font-semibold text-sm">Envío GRATIS +S/.50</span>
+                    </div>
+
+                    <div class="flex items-center gap-1.5 bg-white/20 px-3 py-1 rounded-full backdrop-blur-sm">
+                        <span class="material-icons text-sm">discount</span>
+                        <span class="font-semibold text-sm">20% OFF en toda la tienda</span>
+                    </div>
+
+                    <div
+                        class="flex items-center gap-1.5 bg-yellow-400 text-purple-900 px-3 py-1 rounded-full font-bold shadow-lg">
+                        <span class="material-icons text-sm animate-spin">stars</span>
+                        <span class="text-sm">¡Ofertas hasta agotar stock!</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="absolute top-0 left-0 w-full h-full pointer-events-none overflow-hidden">
+
+            <div class="firework"
+                style="left: 10%; top: 20%; background: #ffd700; --tx: -30px; --ty: -40px; animation-delay: 0s;"></div>
+            <div class="firework"
+                style="left: 10%; top: 20%; background: #ffd700; --tx: 30px; --ty: -40px; animation-delay: 0s;"></div>
+            <div class="firework"
+                style="left: 10%; top: 20%; background: #ffd700; --tx: 0px; --ty: 40px; animation-delay: 0s;"></div>
+
+
+            <div class="firework"
+                style="left: 30%; top: 60%; background: #ff69b4; --tx: -40px; --ty: -30px; animation-delay: 0.5s;">
+            </div>
+            <div class="firework"
+                style="left: 30%; top: 60%; background: #ff69b4; --tx: 40px; --ty: -30px; animation-delay: 0.5s;"></div>
+            <div class="firework"
+                style="left: 30%; top: 60%; background: #ff69b4; --tx: 0px; --ty: 35px; animation-delay: 0.5s;"></div>
+
+
+            <div class="firework"
+                style="left: 50%; top: 30%; background: #00bfff; --tx: -35px; --ty: -35px; animation-delay: 1s;"></div>
+            <div class="firework"
+                style="left: 50%; top: 30%; background: #00bfff; --tx: 35px; --ty: -35px; animation-delay: 1s;"></div>
+            <div class="firework"
+                style="left: 50%; top: 30%; background: #00bfff; --tx: 0px; --ty: 40px; animation-delay: 1s;"></div>
+
+
+            <div class="firework"
+                style="left: 70%; top: 50%; background: #00ff7f; --tx: -30px; --ty: -40px; animation-delay: 0.3s;">
+            </div>
+            <div class="firework"
+                style="left: 70%; top: 50%; background: #00ff7f; --tx: 30px; --ty: -40px; animation-delay: 0.3s;"></div>
+            <div class="firework"
+                style="left: 70%; top: 50%; background: #00ff7f; --tx: 0px; --ty: 38px; animation-delay: 0.3s;"></div>
+
+
+            <div class="firework"
+                style="left: 85%; top: 25%; background: #ff8c00; --tx: -38px; --ty: -32px; animation-delay: 0.8s;">
+            </div>
+            <div class="firework"
+                style="left: 85%; top: 25%; background: #ff8c00; --tx: 38px; --ty: -32px; animation-delay: 0.8s;"></div>
+            <div class="firework"
+                style="left: 85%; top: 25%; background: #ff8c00; --tx: 0px; --ty: 42px; animation-delay: 0.8s;"></div>
+
+
+            <div class="firework"
+                style="left: 20%; top: 70%; background: #da70d6; --tx: -32px; --ty: -38px; animation-delay: 1.2s;">
+            </div>
+            <div class="firework"
+                style="left: 20%; top: 70%; background: #da70d6; --tx: 32px; --ty: -38px; animation-delay: 1.2s;"></div>
+            <div class="firework"
+                style="left: 20%; top: 70%; background: #da70d6; --tx: 0px; --ty: 36px; animation-delay: 1.2s;"></div>
+
+
+            <div class="firework"
+                style="left: 60%; top: 65%; background: #ffffff; --tx: -35px; --ty: -35px; animation-delay: 0.2s;">
+            </div>
+            <div class="firework"
+                style="left: 60%; top: 65%; background: #ffffff; --tx: 35px; --ty: -35px; animation-delay: 0.2s;"></div>
+            <div class="firework"
+                style="left: 60%; top: 65%; background: #ffffff; --tx: 0px; --ty: 40px; animation-delay: 0.2s;"></div>
+
+
+            <div class="firework"
+                style="left: 40%; top: 40%; background: #ff4444; --tx: -40px; --ty: -30px; animation-delay: 0.6s;">
+            </div>
+            <div class="firework"
+                style="left: 40%; top: 40%; background: #ff4444; --tx: 40px; --ty: -30px; animation-delay: 0.6s;"></div>
+            <div class="firework"
+                style="left: 40%; top: 40%; background: #ff4444; --tx: 0px; --ty: 38px; animation-delay: 0.6s;"></div>
+
+
+            <div class="firework"
+                style="left: 75%; top: 75%; background: #00ffff; --tx: -33px; --ty: -37px; animation-delay: 1.1s;">
+            </div>
+            <div class="firework"
+                style="left: 75%; top: 75%; background: #00ffff; --tx: 33px; --ty: -37px; animation-delay: 1.1s;"></div>
+            <div class="firework"
+                style="left: 75%; top: 75%; background: #00ffff; --tx: 0px; --ty: 39px; animation-delay: 1.1s;"></div>
+
+
+            <div class="firework"
+                style="left: 90%; top: 55%; background: #32cd32; --tx: -36px; --ty: -34px; animation-delay: 0.4s;">
+            </div>
+            <div class="firework"
+                style="left: 90%; top: 55%; background: #32cd32; --tx: 36px; --ty: -34px; animation-delay: 0.4s;"></div>
+            <div class="firework"
+                style="left: 90%; top: 55%; background: #32cd32; --tx: 0px; --ty: 41px; animation-delay: 0.4s;"></div>
+
+
+            <div class="firework"
+                style="left: 15%; top: 45%; background: #ff00ff; --tx: -34px; --ty: -36px; animation-delay: 0.9s;">
+            </div>
+            <div class="firework"
+                style="left: 15%; top: 45%; background: #ff00ff; --tx: 34px; --ty: -36px; animation-delay: 0.9s;"></div>
+            <div class="firework"
+                style="left: 15%; top: 45%; background: #ff00ff; --tx: 0px; --ty: 37px; animation-delay: 0.9s;"></div>
+
+
+            <div class="firework"
+                style="left: 55%; top: 80%; background: #ffa500; --tx: -37px; --ty: -33px; animation-delay: 1.3s;">
+            </div>
+            <div class="firework"
+                style="left: 55%; top: 80%; background: #ffa500; --tx: 37px; --ty: -33px; animation-delay: 1.3s;"></div>
+            <div class="firework"
+                style="left: 55%; top: 80%; background: #ffa500; --tx: 0px; --ty: 43px; animation-delay: 1.3s;"></div>
+        </div>
+
+
+        <div class="absolute top-0 left-0 w-full h-full pointer-events-none">
+            <div class="absolute top-1/2 left-1/4 w-2 h-2 bg-white rounded-full animate-ping"
+                style="animation-delay: 0s;"></div>
+            <div class="absolute top-1/3 right-1/3 w-2 h-2 bg-white rounded-full animate-ping"
+                style="animation-delay: 0.5s;"></div>
+            <div class="absolute bottom-1/3 right-1/4 w-2 h-2 bg-white rounded-full animate-ping"
+                style="animation-delay: 1s;"></div>
+        </div>
+
     </div>
 
-    <header id="main-header">
-        <div class="container header-content">
-            <a href="#" class="logo">KakoiKids <i class="fa-solid fa-leaf"></i></a>
-
-            <nav class="main-nav">
-                <ul>
-                    <li><a href="#hero" class="active">Inicio</a></li>
-                    <li><a href="#shop">Tienda</a></li>
-                    <li><a href="#about">Nosotros</a></li>
-                </ul>
-            </nav>
-
-            <div class="header-actions">
-                <button id="cart-btn" aria-label="Abrir carrito">
-                    <i class="fa-solid fa-bag-shopping"></i>
-                    <span id="cart-count">0</span>
-                </button>
-            </div>
+    <nav
+        class="container mx-auto px-6 py-6 flex items-center justify-between sticky top-0 z-50 bg-background-light/95 dark:bg-background-dark/95 backdrop-blur-md transition-all border-b border-transparent dark:border-gray-800">
+        <a href="#" class="logo" onclick="showHome(); return false;">
+            KakoiKids
+            <i class="fa-solid fa-leaf"></i>
+        </a>
+        <div class="hidden md:flex items-center gap-10 font-medium text-lg">
+            <a class="text-primary hover:text-primary_dark transition-colors cursor-pointer"
+                onclick="showHome()">Inicio</a>
+            <a class="hover:text-primary transition-colors cursor-pointer" href="#shop" onclick="showHome()">Tienda</a>
+            <a class="hover:text-primary transition-colors cursor-pointer" href="#about"
+                onclick="showHome()">Nosotros</a>
         </div>
-    </header>
+        <div class="flex items-center gap-4">
+            <button class="relative p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-full transition-colors group"
+                onclick="toggleCartView()">
+                <span
+                    class="material-icons text-gray-600 dark:text-gray-300 group-hover:text-primary transition-colors">shopping_bag</span>
+                <span
+                    class="absolute top-0 right-0 bg-secondary text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center border-2 border-background-light dark:border-background-dark transform scale-0 transition-transform duration-300"
+                    id="cart-badge">0</span>
+            </button>
+            <button
+                class="p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-full transition-colors text-gray-500 dark:text-gray-400"
+                onclick="document.documentElement.classList.toggle('dark')">
+                <span class="material-icons dark:hidden">dark_mode</span>
+                <span class="material-icons hidden dark:block">light_mode</span>
+            </button>
+        </div>
+    </nav>
+    <div class="flex-grow animate-fade-in bg-gradient-to-b from-gray-50 via-white to-gray-50 dark:from-gray-950 dark:via-gray-900 dark:to-gray-950"
+        id="landing-view">
 
+        <header class="container mx-auto px-6 py-12 md:py-24 grid md:grid-cols-2 gap-12 items-center relative">
 
-    <section id="hero">
-        <div class="container hero-container">
-            <div class="hero-text">
-                <h1>Viste a tus pequeños con <span class="highlight">amor</span> y estilo.</h1>
-                <p>Descubre nuestra nueva colección minimalista. Ropa suave, duradera y encantadora para cada aventura.
+            <div class="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl -z-10"></div>
+            <div class="absolute bottom-0 left-0 w-96 h-96 bg-secondary/5 rounded-full blur-3xl -z-10"></div>
+            <div class="space-y-6">
+                <h1 class="text-5xl md:text-6xl font-bold leading-tight text-gray-800 dark:text-white">
+                    Viste a tus pequeños con <span
+                        class="text-secondary underline decoration-wavy decoration-primary/30">amor</span> y estilo.
+                </h1>
+                <p class="text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-lg leading-relaxed">
+                    Descubre nuestra nueva colección minimalista. Ropa suave, duradera y encantadora para cada aventura.
                 </p>
-                <a href="#shop" class="btn btn-primary">Ver Colección</a>
-            </div>
-            <div class="hero-image">
-                <img src="assets/images/hero.png" alt="Ropa de niños en un perchero minimalista">
-            </div>
-        </div>
-    </section>
-
-    <section id="shop" class="section-padding">
-        <div class="container">
-            <h2 class="section-title">Nuestros Tesoros</h2>
-
-            <div class="filter-bar">
-                <div class="filter-group">
-                    <label for="category-filter">Categoría:</label>
-                    <select id="category-filter">
-                        <option value="all">Todas</option>
-                        <option value="baby">Bebés (0-24m)</option>
-                        <option value="girl">Niñas</option>
-                        <option value="boy">Niños</option>
-                    </select>
-                </div>
-                <div class="filter-group">
-                    <label for="size-filter">Talla:</label>
-                    <button class="filter-chip active" data-size="all">Todas</button>
-                    <button class="filter-chip" data-size="0-6m">0-6m</button>
-                    <button class="filter-chip" data-size="6-12m">6-12m</button>
-                    <button class="filter-chip" data-size="1-2y">1-2a</button>
-                    <button class="filter-chip" data-size="3-5y">3-5a</button>
+                <div class="pt-4">
+                    <a class="inline-flex items-center gap-2 bg-primary hover:bg-primary_dark text-white font-bold py-4 px-8 rounded-full shadow-lg shadow-primary/30 hover:shadow-primary/50 transition-all transform hover:-translate-y-1"
+                        href="#shop">
+                        Ver Colección
+                        <span class="material-icons text-sm">arrow_forward</span>
+                    </a>
                 </div>
             </div>
+            <div class="relative">
+                <div
+                    class="absolute inset-0 bg-secondary/10 dark:bg-secondary/5 rounded-full filter blur-3xl transform scale-90 translate-y-10 -z-10">
+                </div>
+                <img alt="Niño feliz sonriendo con ropa cómoda"
+                    class="w-full h-auto rounded-[40px] shadow-2xl object-cover aspect-[4/5] md:aspect-square transform rotate-2 hover:rotate-0 transition-transform duration-500 border-4 border-white dark:border-gray-700"
+                    src="nino-sonriendo.png" />
+            </div>
+        </header>
+
+        <section
+            class="py-20 bg-gradient-to-b from-white via-gray-50 to-white dark:from-gray-900 dark:via-gray-950 dark:to-gray-900 relative overflow-hidden"
+            id="shop">
+
+            <div class="absolute inset-0 opacity-5 dark:opacity-10 -z-10"
+                style="background-image: radial-gradient(circle at 2px 2px, currentColor 1px, transparent 0); background-size: 40px 40px;">
+            </div>
+            <div class="container mx-auto px-6 relative z-10">
+                <div class="text-center mb-12">
+                    <h2 class="text-4xl font-bold text-gray-800 dark:text-white mb-4">Nuestros Tesoros</h2>
+                    <div class="w-24 h-1 bg-primary mx-auto rounded-full"></div>
+                </div>
+                <div
+                    class="bg-card-light dark:bg-card-dark p-4 rounded-xl shadow-sm mb-12 flex flex-wrap items-center justify-center gap-4 md:gap-8 mx-auto max-w-4xl border border-gray-100 dark:border-gray-700">
+                    <div class="flex items-center gap-2">
+                        <span
+                            class="text-sm font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider">Categoría:</span>
+                        <select
+                            class="form-select border-none bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-200 rounded-lg py-1 px-4 focus:ring-2 focus:ring-primary text-sm font-medium">
+                            <option>Todas</option>
+                            <option>Niños</option>
+                            <option>Niñas</option>
+                            <option>Bebés</option>
+                        </select>
+                    </div>
+                    <div class="h-6 w-px bg-gray-200 dark:bg-gray-700 hidden md:block"></div>
+                    <div class="flex items-center gap-3 overflow-x-auto pb-2 md:pb-0 scrollbar-hide">
+                        <span
+                            class="text-sm font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider whitespace-nowrap">Talla:</span>
+                        <button data-size="all"
+                            class="size-filter px-4 py-1 rounded-full bg-primary text-white text-sm font-medium shadow-sm transition-colors whitespace-nowrap">Todas</button>
+                        <button data-size="2Y"
+                            class="size-filter px-4 py-1 rounded-full bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 text-gray-600 dark:text-gray-300 text-sm font-medium transition-colors whitespace-nowrap">2Y</button>
+                        <button data-size="4Y"
+                            class="size-filter px-4 py-1 rounded-full bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 text-gray-600 dark:text-gray-300 text-sm font-medium transition-colors whitespace-nowrap">4Y</button>
+                        <button data-size="6Y"
+                            class="size-filter px-4 py-1 rounded-full bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 text-gray-600 dark:text-gray-300 text-sm font-medium transition-colors whitespace-nowrap">6Y</button>
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
 
 
-            <div id="product-grid" class="product-grid">
+                    <div data-product-size="4Y"
+                        class="group bg-card-light dark:bg-card-dark rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2 cursor-pointer flex flex-col border border-gray-100 dark:border-gray-700"
+                        onclick="openProductModal({
+                            title: 'Polo MNARA',
+                            category: 'Niño • 4Y',
+                            price: 59.00,
+                            description: 'Polo blanco con mangas de diseño geométrico naranja. Confeccionado en 100% algodón orgánico, suave y transpirable. Perfecto para el día a día.',
+                            features: ['100% Algodón Orgánico', 'Diseño Exclusivo', 'Talla 4Y', 'Color Blanco'],
+                            images: [
+                                'Polo-MNARA-4Y.jpeg'
+                            ]
+                        })">
+                        <div class="relative aspect-[4/3] overflow-hidden bg-white dark:bg-gray-100">
+                            <span
+                                class="absolute top-3 left-3 bg-primary text-white text-xs font-bold px-2 py-1 rounded z-10">NUEVO</span>
+                            <img alt="Polo MNARA blanco con mangas naranjas"
+                                class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
+                                src="Polo-MNARA-4Y.jpeg" />
 
-                <div class="loader">
-                    <i class="fa-solid fa-spinner fa-spin"></i> Cargando productos...
+                        </div>
+                        <div class="p-5 flex flex-col flex-grow">
+                            <div
+                                class="text-xs font-bold text-gray-400 dark:text-gray-500 mb-1 uppercase tracking-wide">
+                                Niño • 4Y</div>
+                            <h3 class="text-lg font-bold text-gray-800 dark:text-white mb-2">Polo MNARA</h3>
+                            <div class="mt-auto flex items-end justify-between">
+                                <div>
+                                    <span class="text-xl font-bold text-primary">S/. 59.00</span>
+                                </div>
+                                <button
+                                    class="bg-gray-50 dark:bg-gray-700 hover:bg-primary hover:text-white dark:hover:bg-primary dark:hover:text-white text-gray-700 dark:text-gray-200 px-4 py-2 rounded-lg text-sm font-semibold flex items-center gap-2 transition-colors border border-gray-200 dark:border-gray-600 hover:border-transparent active:scale-95"
+                                    onclick="event.stopPropagation(); addToCart('Polo MNARA', 59.00, 'Polo-MNARA-4Y.jpeg')">
+                                    <span class="material-icons text-sm">shopping_cart</span>
+                                    Agregar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div data-product-size="6Y"
+                        class="group bg-card-light dark:bg-card-dark rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2 cursor-pointer flex flex-col border border-gray-100 dark:border-gray-700"
+                        onclick="openProductModal({
+                            title: 'Polo MRAYSM',
+                            category: 'Niño • 6Y',
+                            price: 59.00,
+                            description: 'Polo color vanilla con diseño moderno y cómodo. Confeccionado en 100% algodón orgánico, suave y transpirable. Ideal para cualquier ocasión.',
+                            features: ['100% Algodón Orgánico', 'Diseño Exclusivo', 'Talla 6Y', 'Color Vanilla'],
+                            images: [
+                                'Polo-MRAYSM-6Y.jpeg'
+                            ]
+                        })">
+                        <div class="relative aspect-[4/3] overflow-hidden bg-white dark:bg-gray-100">
+                            <span
+                                class="absolute top-3 left-3 bg-primary text-white text-xs font-bold px-2 py-1 rounded z-10">NUEVO</span>
+                            <img alt="Polo MRAYSM color vanilla"
+                                class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
+                                src="Polo-MRAYSM-6Y.jpeg" />
+
+                        </div>
+                        <div class="p-5 flex flex-col flex-grow">
+                            <div
+                                class="text-xs font-bold text-gray-400 dark:text-gray-500 mb-1 uppercase tracking-wide">
+                                Niño • 6Y</div>
+                            <h3 class="text-lg font-bold text-gray-800 dark:text-white mb-2">Polo MRAYSM</h3>
+                            <div class="mt-auto flex items-end justify-between">
+                                <div>
+                                    <span class="text-xl font-bold text-primary">S/. 59.00</span>
+                                </div>
+                                <button
+                                    class="bg-gray-50 dark:bg-gray-700 hover:bg-primary hover:text-white dark:hover:bg-primary dark:hover:text-white text-gray-700 dark:text-gray-200 px-4 py-2 rounded-lg text-sm font-semibold flex items-center gap-2 transition-colors border border-gray-200 dark:border-gray-600 hover:border-transparent active:scale-95"
+                                    onclick="event.stopPropagation(); addToCart('Polo MRAYSM', 59.00, 'Polo-MRAYSM-6Y.jpeg')">
+                                    <span class="material-icons text-sm">shopping_cart</span>
+                                    Agregar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div data-product-size="4Y"
+                        class="group bg-card-light dark:bg-card-dark rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2 cursor-pointer flex flex-col border border-gray-100 dark:border-gray-700"
+                        onclick="openProductModal({
+                            title: 'Polo MRAYS',
+                            category: 'Niño • 4Y',
+                            price: 59.00,
+                            description: 'Polo blanco con mangas color vanilla. Diseño moderno y fresco, confeccionado en 100% algodón orgánico. Suave, transpirable y perfecto para el día a día.',
+                            features: ['100% Algodón Orgánico', 'Diseño Bicolor', 'Talla 4Y', 'Blanco/Vanilla'],
+                            images: [
+                                'Polo-MRAYS-4Y.jpeg'
+                            ]
+                        })">
+                        <div class="relative aspect-[4/3] overflow-hidden bg-white dark:bg-gray-100">
+                            <span
+                                class="absolute top-3 left-3 bg-primary text-white text-xs font-bold px-2 py-1 rounded z-10">NUEVO</span>
+                            <img alt="Polo MRAYS blanco con mangas vanilla"
+                                class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
+                                src="Polo-MRAYS-4Y.jpeg" />
+
+                        </div>
+                        <div class="p-5 flex flex-col flex-grow">
+                            <div
+                                class="text-xs font-bold text-gray-400 dark:text-gray-500 mb-1 uppercase tracking-wide">
+                                Niño • 4Y</div>
+                            <h3 class="text-lg font-bold text-gray-800 dark:text-white mb-2">Polo MRAYS</h3>
+                            <div class="mt-auto flex items-end justify-between">
+                                <div>
+                                    <span class="text-xl font-bold text-primary">S/. 59.00</span>
+                                </div>
+                                <button
+                                    class="bg-gray-50 dark:bg-gray-700 hover:bg-primary hover:text-white dark:hover:bg-primary dark:hover:text-white text-gray-700 dark:text-gray-200 px-4 py-2 rounded-lg text-sm font-semibold flex items-center gap-2 transition-colors border border-gray-200 dark:border-gray-600 hover:border-transparent active:scale-95"
+                                    onclick="event.stopPropagation(); addToCart('Polo MRAYS', 59.00, 'Polo-MRAYS-4Y.jpeg')">
+                                    <span class="material-icons text-sm">shopping_cart</span>
+                                    Agregar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div data-product-size="4Y"
+                        class="group bg-card-light dark:bg-card-dark rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2 cursor-pointer flex flex-col border border-gray-100 dark:border-gray-700"
+                        onclick="openProductModal({
+                            title: 'Polo MPLOM 4Y',
+                            category: 'Niño • 4Y',
+                            price: 59.00,
+                            description: 'Polo color vanilla con diseño elegante y cómodo. Confeccionado en 100% algodón orgánico, suave y transpirable. Perfecto para cualquier ocasión.',
+                            features: ['100% Algodón Orgánico', 'Diseño Exclusivo', 'Talla 4Y', 'Color Vanilla'],
+                            images: [
+                                'Polo-MPLOM-4Y.jpeg'
+                            ]
+                        })">
+                        <div class="relative aspect-[4/3] overflow-hidden bg-white dark:bg-gray-100">
+                            <span
+                                class="absolute top-3 left-3 bg-primary text-white text-xs font-bold px-2 py-1 rounded z-10">NUEVO</span>
+                            <img alt="Polo MPLOM color vanilla talla 4Y"
+                                class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
+                                src="Polo-MPLOM-4Y.jpeg" />
+
+                        </div>
+                        <div class="p-5 flex flex-col flex-grow">
+                            <div
+                                class="text-xs font-bold text-gray-400 dark:text-gray-500 mb-1 uppercase tracking-wide">
+                                Niño • 4Y</div>
+                            <h3 class="text-lg font-bold text-gray-800 dark:text-white mb-2">Polo MPLOM 4Y</h3>
+                            <div class="mt-auto flex items-end justify-between">
+                                <div>
+                                    <span class="text-xl font-bold text-primary">S/. 59.00</span>
+                                </div>
+                                <button
+                                    class="bg-gray-50 dark:bg-gray-700 hover:bg-primary hover:text-white dark:hover:bg-primary dark:hover:text-white text-gray-700 dark:text-gray-200 px-4 py-2 rounded-lg text-sm font-semibold flex items-center gap-2 transition-colors border border-gray-200 dark:border-gray-600 hover:border-transparent active:scale-95"
+                                    onclick="event.stopPropagation(); addToCart('Polo MPLOM 4Y', 59.00, 'Polo-MPLOM-4Y.jpeg')">
+                                    <span class="material-icons text-sm">shopping_cart</span>
+                                    Agregar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div data-product-size="6Y"
+                        class="group bg-card-light dark:bg-card-dark rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2 cursor-pointer flex flex-col border border-gray-100 dark:border-gray-700"
+                        onclick="openProductModal({
+                            title: 'Polo MPLOM 6Y',
+                            category: 'Niño • 6Y',
+                            price: 59.00,
+                            description: 'Polo color vanilla con diseño elegante y cómodo. Confeccionado en 100% algodón orgánico, suave y transpirable. Perfecto para cualquier ocasión.',
+                            features: ['100% Algodón Orgánico', 'Diseño Exclusivo', 'Talla 6Y', 'Color Vanilla'],
+                            images: [
+                                'Polo-MPLOM-6Y.jpeg'
+                            ]
+                        })">
+                        <div class="relative aspect-[4/3] overflow-hidden bg-white dark:bg-gray-100">
+                            <span
+                                class="absolute top-3 left-3 bg-primary text-white text-xs font-bold px-2 py-1 rounded z-10">NUEVO</span>
+                            <img alt="Polo MPLOM color vanilla talla 6Y"
+                                class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
+                                src="Polo-MPLOM-6Y.jpeg" />
+
+                        </div>
+                        <div class="p-5 flex flex-col flex-grow">
+                            <div
+                                class="text-xs font-bold text-gray-400 dark:text-gray-500 mb-1 uppercase tracking-wide">
+                                Niño • 6Y</div>
+                            <h3 class="text-lg font-bold text-gray-800 dark:text-white mb-2">Polo MPLOM 6Y</h3>
+                            <div class="mt-auto flex items-end justify-between">
+                                <div>
+                                    <span class="text-xl font-bold text-primary">S/. 59.00</span>
+                                </div>
+                                <button
+                                    class="bg-gray-50 dark:bg-gray-700 hover:bg-primary hover:text-white dark:hover:bg-primary dark:hover:text-white text-gray-700 dark:text-gray-200 px-4 py-2 rounded-lg text-sm font-semibold flex items-center gap-2 transition-colors border border-gray-200 dark:border-gray-600 hover:border-transparent active:scale-95"
+                                    onclick="event.stopPropagation(); addToCart('Polo MPLOM 6Y', 59.00, 'Polo-MPLOM-6Y.jpeg')">
+                                    <span class="material-icons text-sm">shopping_cart</span>
+                                    Agregar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div data-product-size="4Y"
+                        class="group bg-card-light dark:bg-card-dark rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2 cursor-pointer flex flex-col border border-gray-100 dark:border-gray-700"
+                        onclick="openProductModal({
+                            title: 'Polo MFLOR 4Y',
+                            category: 'Niño • 4Y',
+                            price: 59.00,
+                            description: 'Polo color vanilla con diseño floral moderno. Confeccionado en 100% algodón orgánico, suave y transpirable. Estilo único y cómodo para el día a día.',
+                            features: ['100% Algodón Orgánico', 'Diseño Floral', 'Talla 4Y', 'Color Vanilla'],
+                            images: [
+                                'Polo-MFLOR-4Y.jpeg'
+                            ]
+                        })">
+                        <div class="relative aspect-[4/3] overflow-hidden bg-white dark:bg-gray-100">
+                            <span
+                                class="absolute top-3 left-3 bg-primary text-white text-xs font-bold px-2 py-1 rounded z-10">NUEVO</span>
+                            <img alt="Polo MFLOR color vanilla talla 4Y"
+                                class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
+                                src="Polo-MFLOR-4Y.jpeg" />
+
+                        </div>
+                        <div class="p-5 flex flex-col flex-grow">
+                            <div
+                                class="text-xs font-bold text-gray-400 dark:text-gray-500 mb-1 uppercase tracking-wide">
+                                Niño • 4Y</div>
+                            <h3 class="text-lg font-bold text-gray-800 dark:text-white mb-2">Polo MFLOR 4Y</h3>
+                            <div class="mt-auto flex items-end justify-between">
+                                <div>
+                                    <span class="text-xl font-bold text-primary">S/. 59.00</span>
+                                </div>
+                                <button
+                                    class="bg-gray-50 dark:bg-gray-700 hover:bg-primary hover:text-white dark:hover:bg-primary dark:hover:text-white text-gray-700 dark:text-gray-200 px-4 py-2 rounded-lg text-sm font-semibold flex items-center gap-2 transition-colors border border-gray-200 dark:border-gray-600 hover:border-transparent active:scale-95"
+                                    onclick="event.stopPropagation(); addToCart('Polo MFLOR 4Y', 59.00, 'Polo-MFLOR-4Y.jpeg')">
+                                    <span class="material-icons text-sm">shopping_cart</span>
+                                    Agregar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div data-product-size="6Y"
+                        class="group bg-card-light dark:bg-card-dark rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2 cursor-pointer flex flex-col border border-gray-100 dark:border-gray-700"
+                        onclick="openProductModal({
+                            title: 'Polo MFLOR 6Y',
+                            category: 'Niño • 6Y',
+                            price: 59.00,
+                            description: 'Polo color vanilla con diseño floral moderno. Confeccionado en 100% algodón orgánico, suave y transpirable. Estilo único y cómodo para el día a día.',
+                            features: ['100% Algodón Orgánico', 'Diseño Floral', 'Talla 6Y', 'Color Vanilla'],
+                            images: [
+                                'Polo-MFLOR-6Y.jpeg'
+                            ]
+                        })">
+                        <div class="relative aspect-[4/3] overflow-hidden bg-white dark:bg-gray-100">
+                            <span
+                                class="absolute top-3 left-3 bg-primary text-white text-xs font-bold px-2 py-1 rounded z-10">NUEVO</span>
+                            <img alt="Polo MFLOR color vanilla talla 6Y"
+                                class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
+                                src="Polo-MFLOR-6Y.jpeg" />
+
+                        </div>
+                        <div class="p-5 flex flex-col flex-grow">
+                            <div
+                                class="text-xs font-bold text-gray-400 dark:text-gray-500 mb-1 uppercase tracking-wide">
+                                Niño • 6Y</div>
+                            <h3 class="text-lg font-bold text-gray-800 dark:text-white mb-2">Polo MFLOR 6Y</h3>
+                            <div class="mt-auto flex items-end justify-between">
+                                <div>
+                                    <span class="text-xl font-bold text-primary">S/. 59.00</span>
+                                </div>
+                                <button
+                                    class="bg-gray-50 dark:bg-gray-700 hover:bg-primary hover:text-white dark:hover:bg-primary dark:hover:text-white text-gray-700 dark:text-gray-200 px-4 py-2 rounded-lg text-sm font-semibold flex items-center gap-2 transition-colors border border-gray-200 dark:border-gray-600 hover:border-transparent active:scale-95"
+                                    onclick="event.stopPropagation(); addToCart('Polo MFLOR 6Y', 59.00, 'Polo-MFLOR-6Y.jpeg')">
+                                    <span class="material-icons text-sm">shopping_cart</span>
+                                    Agregar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div data-product-size="2Y"
+                        class="group bg-card-light dark:bg-card-dark rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2 cursor-pointer flex flex-col border border-gray-100 dark:border-gray-700"
+                        onclick="openProductModal({
+                            title: 'Polo RDM 2Y',
+                            category: 'Niño • 2Y',
+                            price: 59.00,
+                            description: 'Polo blanco con diseño clásico y elegante. Confeccionado en 100% algodón orgánico, suave y transpirable. Perfecto para los más pequeños.',
+                            features: ['100% Algodón Orgánico', 'Diseño Clásico', 'Talla 2Y', 'Color Blanco'],
+                            images: [
+                                'Polo-RDM-2Y.jpeg'
+                            ]
+                        })">
+                        <div class="relative aspect-[4/3] overflow-hidden bg-white dark:bg-gray-100">
+                            <span
+                                class="absolute top-3 left-3 bg-primary text-white text-xs font-bold px-2 py-1 rounded z-10">NUEVO</span>
+                            <img alt="Polo RDM color blanco talla 2Y"
+                                class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
+                                src="Polo-RDM-2Y.jpeg" />
+
+                        </div>
+                        <div class="p-5 flex flex-col flex-grow">
+                            <div
+                                class="text-xs font-bold text-gray-400 dark:text-gray-500 mb-1 uppercase tracking-wide">
+                                Niño • 2Y</div>
+                            <h3 class="text-lg font-bold text-gray-800 dark:text-white mb-2">Polo RDM 2Y</h3>
+                            <div class="mt-auto flex items-end justify-between">
+                                <div>
+                                    <span class="text-xl font-bold text-primary">S/. 59.00</span>
+                                </div>
+                                <button
+                                    class="bg-gray-50 dark:bg-gray-700 hover:bg-primary hover:text-white dark:hover:bg-primary dark:hover:text-white text-gray-700 dark:text-gray-200 px-4 py-2 rounded-lg text-sm font-semibold flex items-center gap-2 transition-colors border border-gray-200 dark:border-gray-600 hover:border-transparent active:scale-95"
+                                    onclick="event.stopPropagation(); addToCart('Polo RDM 2Y', 59.00, 'Polo-RDM-2Y.jpeg')">
+                                    <span class="material-icons text-sm">shopping_cart</span>
+                                    Agregar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div data-product-size="6Y"
+                        class="group bg-card-light dark:bg-card-dark rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2 cursor-pointer flex flex-col border border-gray-100 dark:border-gray-700"
+                        onclick="openProductModal({
+                            title: 'Polo RDM 6Y',
+                            category: 'Niño • 6Y',
+                            price: 59.00,
+                            description: 'Polo blanco con diseño clásico y elegante. Confeccionado en 100% algodón orgánico, suave y transpirable. Perfecto para el día a día.',
+                            features: ['100% Algodón Orgánico', 'Diseño Clásico', 'Talla 6Y', 'Color Blanco'],
+                            images: [
+                                'Polo-RDM-6Y.jpeg'
+                            ]
+                        })">
+                        <div class="relative aspect-[4/3] overflow-hidden bg-white dark:bg-gray-100">
+                            <span
+                                class="absolute top-3 left-3 bg-primary text-white text-xs font-bold px-2 py-1 rounded z-10">NUEVO</span>
+                            <img alt="Polo RDM color blanco talla 6Y"
+                                class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
+                                src="Polo-RDM-6Y.jpeg" />
+
+                        </div>
+                        <div class="p-5 flex flex-col flex-grow">
+                            <div
+                                class="text-xs font-bold text-gray-400 dark:text-gray-500 mb-1 uppercase tracking-wide">
+                                Niño • 6Y</div>
+                            <h3 class="text-lg font-bold text-gray-800 dark:text-white mb-2">Polo RDM 6Y</h3>
+                            <div class="mt-auto flex items-end justify-between">
+                                <div>
+                                    <span class="text-xl font-bold text-primary">S/. 59.00</span>
+                                </div>
+                                <button
+                                    class="bg-gray-50 dark:bg-gray-700 hover:bg-primary hover:text-white dark:hover:bg-primary dark:hover:text-white text-gray-700 dark:text-gray-200 px-4 py-2 rounded-lg text-sm font-semibold flex items-center gap-2 transition-colors border border-gray-200 dark:border-gray-600 hover:border-transparent active:scale-95"
+                                    onclick="event.stopPropagation(); addToCart('Polo RDM 6Y', 59.00, 'Polo-RDM-6Y.jpeg')">
+                                    <span class="material-icons text-sm">shopping_cart</span>
+                                    Agregar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="group bg-card-light dark:bg-card-dark rounded-2xl overflow-hidden shadow-soft hover:shadow-xl transition-all duration-300 border border-gray-100 dark:border-gray-800 flex flex-col cursor-pointer"
+                        onclick="openProductModal({
+                            category: 'NIÑA • 3-5Y',
+                            title: 'Vestido Floral Verano',
+                            description: 'Vestido ligero y fresco perfecto para los días soleados. Confeccionado en algodón suave con estampado floral delicado. Ideal para jugar y lucir hermosa en cualquier ocasión.',
+                            price: 89.00,
+                            image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBwizUnvBOdWtcEtVuqkzSB-5tnttmEZf_N55yXe5Y2YG_8AkSAfJw-jNY5l_h5QReViwCxAuLQBz49ZEpcR_w-VA-sMTTQgo79BCemNiR5IQOuK1z34NhP2itgSZcXh5Q1l4TMXWQL4BzOw702ek_Ax6yaYMPprnMlgkuhl41P3KdxmWE3udtzI-7C_G8ciOtNiAQ2rXozrxf0VV713zCebuKFiQnw0MEP6OFaiCtbLHOz5U3_KaCUqOadfFHY9QUCaivLLymkFzM',
+                            images: ['https://lh3.googleusercontent.com/aida-public/AB6AXuBwizUnvBOdWtcEtVuqkzSB-5tnttmEZf_N55yXe5Y2YG_8AkSAfJw-jNY5l_h5QReViwCxAuLQBz49ZEpcR_w-VA-sMTTQgo79BCemNiR5IQOuK1z34NhP2itgSZcXh5Q1l4TMXWQL4BzOw702ek_Ax6yaYMPprnMlgkuhl41P3KdxmWE3udtzI-7C_G8ciOtNiAQ2rXozrxf0VV713zCebuKFiQnw0MEP6OFaiCtbLHOz5U3_KaCUqOadfFHY9QUCaivLLymkFzM']
+                        })">
+                        <div class="relative aspect-[4/3] overflow-hidden bg-gray-100 dark:bg-gray-800">
+                            <img alt="Vestido floral de verano para niña"
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBwizUnvBOdWtcEtVuqkzSB-5tnttmEZf_N55yXe5Y2YG_8AkSAfJw-jNY5l_h5QReViwCxAuLQBz49ZEpcR_w-VA-sMTTQgo79BCemNiR5IQOuK1z34NhP2itgSZcXh5Q1l4TMXWQL4BzOw702ek_Ax6yaYMPprnMlgkuhl41P3KdxmWE3udtzI-7C_G8ciOtNiAQ2rXozrxf0VV713zCebuKFiQnw0MEP6OFaiCtbLHOz5U3_KaCUqOadfFHY9QUCaivLLymkFzM" />
+
+                        </div>
+                        <div class="p-5 flex flex-col flex-grow">
+                            <div
+                                class="text-xs font-bold text-gray-400 dark:text-gray-500 mb-1 uppercase tracking-wide">
+                                Niña • 3-5y</div>
+                            <h3 class="text-lg font-bold text-gray-800 dark:text-white mb-2">Vestido Floral Verano</h3>
+                            <div class="mt-auto flex items-end justify-between">
+                                <div>
+                                    <span class="text-xl font-bold text-primary">S/. 89.00</span>
+                                </div>
+                                <button
+                                    class="bg-gray-50 dark:bg-gray-700 hover:bg-primary hover:text-white dark:hover:bg-primary dark:hover:text-white text-gray-700 dark:text-gray-200 px-4 py-2 rounded-lg text-sm font-semibold flex items-center gap-2 transition-colors border border-gray-200 dark:border-gray-600 hover:border-transparent active:scale-95"
+                                    onclick="event.stopPropagation(); addToCart('Vestido Floral Verano', 89.00, 'https://lh3.googleusercontent.com/aida-public/AB6AXuBwizUnvBOdWtcEtVuqkzSB-5tnttmEZf_N55yXe5Y2YG_8AkSAfJw-jNY5l_h5QReViwCxAuLQBz49ZEpcR_w-VA-sMTTQgo79BCemNiR5IQOuK1z34NhP2itgSZcXh5Q1l4TMXWQL4BzOw702ek_Ax6yaYMPprnMlgkuhl41P3KdxmWE3udtzI-7C_G8ciOtNiAQ2rXozrxf0VV713zCebuKFiQnw0MEP6OFaiCtbLHOz5U3_KaCUqOadfFHY9QUCaivLLymkFzM')">
+                                    <span class="material-icons text-sm">shopping_cart</span>
+                                    Agregar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="group bg-card-light dark:bg-card-dark rounded-2xl overflow-hidden shadow-soft hover:shadow-xl transition-all duration-300 border border-gray-100 dark:border-gray-800 flex flex-col cursor-pointer"
+                        onclick="openProductModal({
+                            category: 'NIÑO • 1-2Y',
+                            title: 'Camiseta Zorro Menta',
+                            description: 'Camiseta de algodón suave con adorable estampado de zorro. Color menta fresco y versátil. Perfecta para el día a día de tu pequeño explorador.',
+                            price: 55.00,
+                            oldPrice: 69.00,
+                            image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuD8h9Z4xNwOZFscMK9wVA6e-P7z41a7dEmbUF0w2YXw76uwmFVAaYcC3LAiZvBbsfHQpKUxbRRT9yUO7Myfa_r0Ma-SdcQS05i1hqTkDBAHx_9J2xNdb1ovPQQvAz6m6DoraybQVdM6UmewhQYHTeI1uEhMWRsKCCc0Eiq-eS9vDewQc0_tXY7rpjHCc6kiLObu1lvRQYRtcrXktXEJ3q6NpsT6Ppv7VwqRL81Ti3TjIgJhlsJzPXqWFzV50s6VHLtKUiECVmIluoY',
+                            images: ['https://lh3.googleusercontent.com/aida-public/AB6AXuD8h9Z4xNwOZFscMK9wVA6e-P7z41a7dEmbUF0w2YXw76uwmFVAaYcC3LAiZvBbsfHQpKUxbRRT9yUO7Myfa_r0Ma-SdcQS05i1hqTkDBAHx_9J2xNdb1ovPQQvAz6m6DoraybQVdM6UmewhQYHTeI1uEhMWRsKCCc0Eiq-eS9vDewQc0_tXY7rpjHCc6kiLObu1lvRQYRtcrXktXEJ3q6NpsT6Ppv7VwqRL81Ti3TjIgJhlsJzPXqWFzV50s6VHLtKUiECVmIluoY']
+                        })">
+                        <div class="relative aspect-[4/3] overflow-hidden bg-gray-100 dark:bg-gray-800">
+                            <span
+                                class="absolute top-3 left-3 bg-accent-red text-white text-xs font-bold px-2 py-1 rounded z-10">-20%</span>
+                            <img alt="Camiseta verde menta con zorro"
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuD8h9Z4xNwOZFscMK9wVA6e-P7z41a7dEmbUF0w2YXw76uwmFVAaYcC3LAiZvBbsfHQpKUxbRRT9yUO7Myfa_r0Ma-SdcQS05i1hqTkDBAHx_9J2xNdb1ovPQQvAz6m6DoraybQVdM6UmewhQYHTeI1uEhMWRsKCCc0Eiq-eS9vDewQc0_tXY7rpjHCc6kiLObu1lvRQYRtcrXktXEJ3q6NpsT6Ppv7VwqRL81Ti3TjIgJhlsJzPXqWFzV50s6VHLtKUiECVmIluoY" />
+
+                        </div>
+                        <div class="p-5 flex flex-col flex-grow">
+                            <div
+                                class="text-xs font-bold text-gray-400 dark:text-gray-500 mb-1 uppercase tracking-wide">
+                                Niño • 1-2y</div>
+                            <h3 class="text-lg font-bold text-gray-800 dark:text-white mb-2">Camiseta Zorro Menta</h3>
+                            <div class="mt-auto flex items-end justify-between">
+                                <div>
+                                    <span class="text-xs text-gray-400 line-through mr-1">S/. 69.00</span>
+                                    <span class="text-xl font-bold text-accent-red">S/. 55.00</span>
+                                </div>
+                                <button
+                                    class="bg-gray-50 dark:bg-gray-700 hover:bg-primary hover:text-white dark:hover:bg-primary dark:hover:text-white text-gray-700 dark:text-gray-200 px-4 py-2 rounded-lg text-sm font-semibold flex items-center gap-2 transition-colors border border-gray-200 dark:border-gray-600 hover:border-transparent active:scale-95"
+                                    onclick="event.stopPropagation(); addToCart('Camiseta Zorro Menta', 55.00, 'https://lh3.googleusercontent.com/aida-public/AB6AXuD8h9Z4xNwOZFscMK9wVA6e-P7z41a7dEmbUF0w2YXw76uwmFVAaYcC3LAiZvBbsfHQpKUxbRRT9yUO7Myfa_r0Ma-SdcQS05i1hqTkDBAHx_9J2xNdb1ovPQQvAz6m6DoraybQVdM6UmewhQYHTeI1uEhMWRsKCCc0Eiq-eS9vDewQc0_tXY7rpjHCc6kiLObu1lvRQYRtcrXktXEJ3q6NpsT6Ppv7VwqRL81Ti3TjIgJhlsJzPXqWFzV50s6VHLtKUiECVmIluoY')">
+                                    <span class="material-icons text-sm">shopping_cart</span>
+                                    Agregar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="group bg-card-light dark:bg-card-dark rounded-2xl overflow-hidden shadow-soft hover:shadow-xl transition-all duration-300 border border-gray-100 dark:border-gray-800 flex flex-col cursor-pointer"
+                        onclick="openProductModal({
+                            category: 'NIÑA • 1-2Y',
+                            title: 'Vestido Jardín Encantado',
+                            description: 'Hermoso vestido con estampado de jardín encantado. Confeccionado en tela suave y transpirable. Diseño cómodo que permite libertad de movimiento para jugar todo el día.',
+                            price: 79.00,
+                            oldPrice: 99.00,
+                            image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBxRmIFn3Ze7sskWDKxN49Lc9w0dQQ04atUAtq9REn5ZY08tOUmUvTLGWuwQSUuj0m2DBJQzILePVpgKwffy-CchWV9qhOfvRXqtWpfwtGI7biker-yy2N9P1qJ9ONb_2DNIlFq3weSgaoKRQ8yYZHzCXGt71d-Jj1e8Vq42YcBQqrPKPYJPfpQHloahasUdcnM20WqJj8dZFSHtFmrmK9MZBYCleFgfD_SLABuxbM5ZtPDMaJmYIRBaByGSZcytQRMv6gkjV2IcdI',
+                            images: ['https://lh3.googleusercontent.com/aida-public/AB6AXuBxRmIFn3Ze7sskWDKxN49Lc9w0dQQ04atUAtq9REn5ZY08tOUmUvTLGWuwQSUuj0m2DBJQzILePVpgKwffy-CchWV9qhOfvRXqtWpfwtGI7biker-yy2N9P1qJ9ONb_2DNIlFq3weSgaoKRQ8yYZHzCXGt71d-Jj1e8Vq42YcBQqrPKPYJPfpQHloahasUdcnM20WqJj8dZFSHtFmrmK9MZBYCleFgfD_SLABuxbM5ZtPDMaJmYIRBaByGSZcytQRMv6gkjV2IcdI']
+                        })">
+                        <div class="relative aspect-[4/3] overflow-hidden bg-gray-100 dark:bg-gray-800">
+                            <span
+                                class="absolute top-3 left-3 bg-accent-red text-white text-xs font-bold px-2 py-1 rounded z-10">-20%</span>
+                            <img alt="Vestido Jardín Encantado"
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBxRmIFn3Ze7sskWDKxN49Lc9w0dQQ04atUAtq9REn5ZY08tOUmUvTLGWuwQSUuj0m2DBJQzILePVpgKwffy-CchWV9qhOfvRXqtWpfwtGI7biker-yy2N9P1qJ9ONb_2DNIlFq3weSgaoKRQ8yYZHzCXGt71d-Jj1e8Vq42YcBQqrPKPYJPfpQHloahasUdcnM20WqJj8dZFSHtFmrmK9MZBYCleFgfD_SLABuxbM5ZtPDMaJmYIRBaByGSZcytQRMv6gkjV2IcdI" />
+
+                        </div>
+                        <div class="p-5 flex flex-col flex-grow">
+                            <div
+                                class="text-xs font-bold text-gray-400 dark:text-gray-500 mb-1 uppercase tracking-wide">
+                                Niña • 1-2y</div>
+                            <h3 class="text-lg font-bold text-gray-800 dark:text-white mb-2">Vestido Jardín Encantado
+                            </h3>
+                            <div class="mt-auto flex items-end justify-between">
+                                <div>
+                                    <span class="text-xs text-gray-400 line-through mr-1">S/. 99.00</span>
+                                    <span class="text-xl font-bold text-accent-red">S/. 79.00</span>
+                                </div>
+                                <button
+                                    class="bg-gray-50 dark:bg-gray-700 hover:bg-primary hover:text-white dark:hover:bg-primary dark:hover:text-white text-gray-700 dark:text-gray-200 px-4 py-2 rounded-lg text-sm font-semibold flex items-center gap-2 transition-colors border border-gray-200 dark:border-gray-600 hover:border-transparent active:scale-95"
+                                    onclick="event.stopPropagation(); addToCart('Vestido Jardín Encantado', 79.00, 'https://lh3.googleusercontent.com/aida-public/AB6AXuBxRmIFn3Ze7sskWDKxN49Lc9w0dQQ04atUAtq9REn5ZY08tOUmUvTLGWuwQSUuj0m2DBJQzILePVpgKwffy-CchWV9qhOfvRXqtWpfwtGI7biker-yy2N9P1qJ9ONb_2DNIlFq3weSgaoKRQ8yYZHzCXGt71d-Jj1e8Vq42YcBQqrPKPYJPfpQHloahasUdcnM20WqJj8dZFSHtFmrmK9MZBYCleFgfD_SLABuxbM5ZtPDMaJmYIRBaByGSZcytQRMv6gkjV2IcdI')">
+                                    <span class="material-icons text-sm">shopping_cart</span>
+                                    Agregar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="group bg-card-light dark:bg-card-dark rounded-2xl overflow-hidden shadow-soft hover:shadow-xl transition-all duration-300 border border-gray-100 dark:border-gray-800 flex flex-col cursor-pointer"
+                        onclick="openProductModal({
+                            category: 'NIÑO • 3-5Y',
+                            title: 'Camiseta Aventura Bosque',
+                            description: 'Camiseta de aventura con diseño inspirado en el bosque. Perfecta para los pequeños exploradores. Tejido suave y resistente que aguanta todas las travesuras.',
+                            price: 59.00,
+                            image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAKq6xhwpNtZEnVmAE-xbqmWFLpD3tuOqhIp5ejsiTnPyVd0o4aBpBtSs7lmEkivjReZ--4vtO7UAWiOp4XHH2mRjDsajwF0J1ZxPsRmPBQjOP1zoji4EEfyPdvn55NvwMsq5cedxiaAs-_eVx86osuHjLCd0XkB83yd5Bq7cWeTz0A2NnM9AdKzndJJRXOCFZKkNoBc_WzGCEwdAEaLiDRezQIHaSQQQNBgeQS84q4zxAord0hxhzGxrUPOzpZHwOr31Ac9ybS83c',
+                            images: ['https://lh3.googleusercontent.com/aida-public/AB6AXuAKq6xhwpNtZEnVmAE-xbqmWFLpD3tuOqhIp5ejsiTnPyVd0o4aBpBtSs7lmEkivjReZ--4vtO7UAWiOp4XHH2mRjDsajwF0J1ZxPsRmPBQjOP1zoji4EEfyPdvn55NvwMsq5cedxiaAs-_eVx86osuHjLCd0XkB83yd5Bq7cWeTz0A2NnM9AdKzndJJRXOCFZKkNoBc_WzGCEwdAEaLiDRezQIHaSQQQNBgeQS84q4zxAord0hxhzGxrUPOzpZHwOr31Ac9ybS83c']
+                        })">
+                        <div class="relative aspect-[4/3] overflow-hidden bg-gray-100 dark:bg-gray-800">
+                            <img alt="Camiseta Aventura Bosque"
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAKq6xhwpNtZEnVmAE-xbqmWFLpD3tuOqhIp5ejsiTnPyVd0o4aBpBtSs7lmEkivjReZ--4vtO7UAWiOp4XHH2mRjDsajwF0J1ZxPsRmPBQjOP1zoji4EEfyPdvn55NvwMsq5cedxiaAs-_eVx86osuHjLCd0XkB83yd5Bq7cWeTz0A2NnM9AdKzndJJRXOCFZKkNoBc_WzGCEwdAEaLiDRezQIHaSQQQNBgeQS84q4zxAord0hxhzGxrUPOzpZHwOr31Ac9ybS83c" />
+
+                        </div>
+                        <div class="p-5 flex flex-col flex-grow">
+                            <div
+                                class="text-xs font-bold text-gray-400 dark:text-gray-500 mb-1 uppercase tracking-wide">
+                                Niño • 3-5y</div>
+                            <h3 class="text-lg font-bold text-gray-800 dark:text-white mb-2">Camiseta Aventura Bosque
+                            </h3>
+                            <div class="mt-auto flex items-end justify-between">
+                                <div>
+                                    <span class="text-xl font-bold text-primary">S/. 59.00</span>
+                                </div>
+                                <button
+                                    class="bg-gray-50 dark:bg-gray-700 hover:bg-primary hover:text-white dark:hover:bg-primary dark:hover:text-white text-gray-700 dark:text-gray-200 px-4 py-2 rounded-lg text-sm font-semibold flex items-center gap-2 transition-colors border border-gray-200 dark:border-gray-600 hover:border-transparent active:scale-95"
+                                    onclick="event.stopPropagation(); addToCart('Camiseta Aventura Bosque', 59.00, 'https://lh3.googleusercontent.com/aida-public/AB6AXuAKq6xhwpNtZEnVmAE-xbqmWFLpD3tuOqhIp5ejsiTnPyVd0o4aBpBtSs7lmEkivjReZ--4vtO7UAWiOp4XHH2mRjDsajwF0J1ZxPsRmPBQjOP1zoji4EEfyPdvn55NvwMsq5cedxiaAs-_eVx86osuHjLCd0XkB83yd5Bq7cWeTz0A2NnM9AdKzndJJRXOCFZKkNoBc_WzGCEwdAEaLiDRezQIHaSQQQNBgeQS84q4zxAord0hxhzGxrUPOzpZHwOr31Ac9ybS83c')">
+                                    <span class="material-icons text-sm">shopping_cart</span>
+                                    Agregar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-16 text-center">
+                    <button onclick="openCatalogModal()"
+                        class="group inline-flex items-center gap-3 bg-gradient-to-r from-primary to-primary_dark hover:from-primary_dark hover:to-primary text-white font-bold py-4 px-10 rounded-full shadow-lg shadow-primary/30 hover:shadow-xl hover:shadow-primary/50 transition-all duration-300 transform hover:-translate-y-1 hover:scale-105">
+                        <span class="material-icons">apps</span>
+                        <span>Ver todos los productos</span>
+                        <span
+                            class="material-icons text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                    </button>
+                    <p class="mt-4 text-sm text-gray-500 dark:text-gray-400">Explora nuestra colección completa</p>
+                </div>
+            </div>
+        </section>
+
+        <section
+            class="py-20 bg-gradient-to-br from-primary/5 via-white to-secondary/5 dark:from-primary/10 dark:via-gray-900 dark:to-secondary/10 relative overflow-hidden">
+
+            <div class="absolute top-20 left-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl animate-pulse"></div>
+            <div class="absolute bottom-20 right-10 w-96 h-96 bg-secondary/10 rounded-full blur-3xl animate-pulse"
+                style="animation-delay: 1s;"></div>
+
+            <div
+                class="absolute top-0 left-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2">
+            </div>
+            <div
+                class="absolute bottom-0 right-0 w-96 h-96 bg-secondary/5 rounded-full blur-3xl translate-x-1/2 translate-y-1/2">
+            </div>
+
+            <div class="container mx-auto px-6 relative z-10">
+
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800 dark:text-white mb-4">
+                        ¿Por qué elegir <span class="text-primary font-extrabold">KakoiKids</span>?
+                    </h2>
+                    <div class="w-24 h-1 bg-primary mx-auto rounded-full mb-4"></div>
+                    <p class="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+                        Nos comprometemos con la calidad, comodidad y felicidad de tus pequeños
+                    </p>
+                </div>
+
+
+                <div class="grid md:grid-cols-3 gap-8">
+
+                    <div class="group relative">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-br from-primary/20 to-primary/5 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-300 opacity-0 group-hover:opacity-100">
+                        </div>
+                        <div
+                            class="relative bg-white dark:bg-gray-800 p-8 rounded-3xl shadow-soft hover:shadow-2xl transition-all duration-300 border border-gray-100 dark:border-gray-700 group-hover:border-primary/50 group-hover:-translate-y-2">
+
+                            <div
+                                class="w-20 h-20 bg-gradient-to-br from-primary to-primary_dark rounded-2xl flex items-center justify-center mx-auto mb-6 transform group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-lg">
+                                <span class="material-icons text-4xl text-white">spa</span>
+                            </div>
+
+
+                            <h3 class="text-2xl font-bold mb-3 text-gray-800 dark:text-white text-center">
+                                Algodón Orgánico
+                            </h3>
+                            <p class="text-gray-600 dark:text-gray-400 text-center leading-relaxed">
+                                Suave para la piel delicada de tus niños, libre de químicos agresivos y certificado 100%
+                                orgánico.
+                            </p>
+
+
+                            <div class="absolute top-4 right-4 w-16 h-16 bg-primary/10 rounded-full blur-xl"></div>
+                        </div>
+                    </div>
+
+
+                    <div class="group relative">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-br from-secondary/20 to-secondary/5 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-300 opacity-0 group-hover:opacity-100">
+                        </div>
+                        <div
+                            class="relative bg-white dark:bg-gray-800 p-8 rounded-3xl shadow-soft hover:shadow-2xl transition-all duration-300 border border-gray-100 dark:border-gray-700 group-hover:border-secondary/50 group-hover:-translate-y-2">
+
+                            <div
+                                class="w-20 h-20 bg-gradient-to-br from-secondary to-accent-red rounded-2xl flex items-center justify-center mx-auto mb-6 transform group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-lg">
+                                <span class="material-icons text-4xl text-white">local_shipping</span>
+                            </div>
+
+
+                            <h3 class="text-2xl font-bold mb-3 text-gray-800 dark:text-white text-center">
+                                Envío Rápido
+                            </h3>
+                            <p class="text-gray-600 dark:text-gray-400 text-center leading-relaxed">
+                                Recibe tus prendas en 24-48 horas. Envío gratis a partir de S/. 50 en todo el país.
+                            </p>
+
+
+                            <div
+                                class="absolute -top-3 -right-3 bg-accent-red text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg">
+                                Gratis +S/.50
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="group relative">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/10 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-300 opacity-0 group-hover:opacity-100">
+                        </div>
+                        <div
+                            class="relative bg-white dark:bg-gray-800 p-8 rounded-3xl shadow-soft hover:shadow-2xl transition-all duration-300 border border-gray-100 dark:border-gray-700 group-hover:border-primary/50 group-hover:-translate-y-2">
+
+                            <div
+                                class="w-20 h-20 bg-gradient-to-br from-accent-red to-secondary rounded-2xl flex items-center justify-center mx-auto mb-6 transform group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-lg">
+                                <span class="material-icons text-4xl text-white">favorite</span>
+                            </div>
+
+
+                            <h3 class="text-2xl font-bold mb-3 text-gray-800 dark:text-white text-center">
+                                Hecho con Amor
+                            </h3>
+                            <p class="text-gray-600 dark:text-gray-400 text-center leading-relaxed">
+                                Diseños pensados para la felicidad y comodidad de los más pequeños con atención al
+                                detalle.
+                            </p>
+
+                            <div class="absolute bottom-4 left-4 w-16 h-16 bg-secondary/10 rounded-full blur-xl"></div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div
+                    class="mt-16 bg-gradient-to-r from-primary/10 via-secondary/10 to-primary/10 dark:from-primary/5 dark:via-secondary/5 dark:to-primary/5 rounded-2xl p-6 border border-primary/20 dark:border-primary/10">
+                    <div class="flex flex-wrap items-center justify-center gap-8 text-center">
+                        <div class="flex items-center gap-2">
+                            <span class="material-icons text-primary text-2xl">verified</span>
+                            <span class="text-gray-700 dark:text-gray-300 font-medium">Calidad Garantizada</span>
+                        </div>
+                        <div class="h-6 w-px bg-gray-300 dark:bg-gray-600 hidden md:block"></div>
+                        <div class="flex items-center gap-2">
+                            <span class="material-icons text-primary text-2xl">autorenew</span>
+                            <span class="text-gray-700 dark:text-gray-300 font-medium">Devoluciones Fáciles</span>
+                        </div>
+                        <div class="h-6 w-px bg-gray-300 dark:bg-gray-600 hidden md:block"></div>
+                        <div class="flex items-center gap-2">
+                            <span class="material-icons text-primary text-2xl">support_agent</span>
+                            <span class="text-gray-700 dark:text-gray-300 font-medium">Soporte 24/7</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section
+            class="py-20 bg-gradient-to-b from-gray-50 via-white to-gray-50 dark:from-gray-950 dark:via-gray-900 dark:to-gray-950 relative overflow-hidden"
+            id="about">
+
+            <div class="absolute inset-0 opacity-5"
+                style="background-image: linear-gradient(30deg, #f0f0f0 12%, transparent 12.5%, transparent 87%, #f0f0f0 87.5%, #f0f0f0), linear-gradient(150deg, #f0f0f0 12%, transparent 12.5%, transparent 87%, #f0f0f0 87.5%, #f0f0f0); background-size: 80px 140px;">
+            </div>
+
+            <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-3xl"></div>
+            <div class="absolute bottom-0 left-0 w-[500px] h-[500px] bg-secondary/5 rounded-full blur-3xl"></div>
+
+            <div class="container mx-auto px-6 relative z-10">
+                <div class="grid lg:grid-cols-2 gap-16 items-center">
+
+                    <div class="order-2 lg:order-1">
+
+                        <div
+                            class="inline-flex items-center gap-2 bg-primary/10 dark:bg-primary/20 px-4 py-2 rounded-full mb-6">
+                            <span class="material-icons text-primary text-sm">favorite</span>
+                            <span class="text-primary font-bold text-sm uppercase tracking-wider">Sobre Nosotros</span>
+                        </div>
+
+
+                        <h2 class="text-4xl md:text-5xl font-bold text-gray-800 dark:text-white mb-6 leading-tight">
+                            Vistiendo <span class="text-primary">sonrisas</span> con amor
+                        </h2>
+
+
+                        <p class="text-lg text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
+                            En <span class="font-bold text-primary">KakoiKids</span>, creemos que cada niño merece ropa
+                            que sea tan especial como ellos. Por eso seleccionamos cuidadosamente cada prenda pensando
+                            en su comodidad, seguridad y felicidad.
+                        </p>
+
+                        <p class="text-lg text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
+                            Trabajamos con materiales de la más alta calidad para crear prendas que acompañen a tus
+                            pequeños
+                            en cada aventura, desde sus primeros pasos hasta sus momentos más especiales.
+                        </p>
+
+
+                        <div class="grid grid-cols-2 gap-4 mb-8">
+                            <div class="flex items-center gap-3 bg-primary/5 dark:bg-primary/10 p-4 rounded-xl">
+                                <div
+                                    class="w-10 h-10 bg-primary/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                                    <span class="material-icons text-primary text-xl">eco</span>
+                                </div>
+                                <div>
+                                    <p class="font-bold text-gray-800 dark:text-white text-sm">Orgánico</p>
+                                    <p class="text-xs text-gray-500 dark:text-gray-400">100% Natural</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-center gap-3 bg-secondary/5 dark:bg-secondary/10 p-4 rounded-xl">
+                                <div
+                                    class="w-10 h-10 bg-secondary/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                                    <span class="material-icons text-secondary text-xl">verified</span>
+                                </div>
+                                <div>
+                                    <p class="font-bold text-gray-800 dark:text-white text-sm">Calidad</p>
+                                    <p class="text-xs text-gray-500 dark:text-gray-400">Garantizada</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-center gap-3 bg-primary/5 dark:bg-primary/10 p-4 rounded-xl">
+                                <div
+                                    class="w-10 h-10 bg-primary/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                                    <span class="material-icons text-primary text-xl">favorite</span>
+                                </div>
+                                <div>
+                                    <p class="font-bold text-gray-800 dark:text-white text-sm">Con Amor</p>
+                                    <p class="text-xs text-gray-500 dark:text-gray-400">Cada detalle</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-center gap-3 bg-secondary/5 dark:bg-secondary/10 p-4 rounded-xl">
+                                <div
+                                    class="w-10 h-10 bg-secondary/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                                    <span class="material-icons text-secondary text-xl">child_care</span>
+                                </div>
+                                <div>
+                                    <p class="font-bold text-gray-800 dark:text-white text-sm">Seguro</p>
+                                    <p class="text-xs text-gray-500 dark:text-gray-400">Para tu bebé</p>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div
+                            class="bg-gradient-to-r from-primary/10 to-secondary/10 dark:from-primary/20 dark:to-secondary/20 p-6 rounded-2xl border-l-4 border-primary">
+                            <p class="text-gray-700 dark:text-gray-200 italic leading-relaxed">
+                                "Nuestra misión es simple: crear ropa que los niños amen usar y los padres confíen."
+                            </p>
+                            <p class="text-primary font-bold mt-2">— Equipo KakoiKids</p>
+                        </div>
+                    </div>
+
+
+                    <div class="order-1 lg:order-2">
+                        <div class="relative">
+
+                            <div
+                                class="relative rounded-3xl overflow-hidden shadow-2xl transform hover:scale-105 transition-transform duration-500">
+                                <img src="sonriendo.png" alt="Niños felices con ropa KakoiKids"
+                                    class="w-full h-[500px] object-cover">
+                            </div>
+
+
+                            <div
+                                class="absolute -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-primary/10 rounded-3xl blur-3xl">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <div class="hidden flex-grow pt-10 pb-20 container mx-auto px-6 animate-fade-in" id="cart-view">
+        <div class="max-w-6xl mx-auto">
+            <button class="mb-8 flex items-center text-gray-500 hover:text-primary transition-colors font-medium"
+                onclick="showHome()">
+                <span class="material-icons mr-2">arrow_back</span> Seguir Comprando
+            </button>
+            <h2
+                class="text-3xl md:text-4xl font-bold font-display text-gray-800 dark:text-white mb-8 flex items-center gap-3">
+                <span class="material-icons text-4xl text-primary">shopping_cart</span>
+                Mi Carrito
+            </h2>
+            <div class="flex flex-col lg:flex-row gap-12">
+                <div class="lg:w-2/3">
+                    <div
+                        class="bg-card-light dark:bg-card-dark rounded-2xl shadow-soft border border-gray-100 dark:border-gray-700 overflow-hidden">
+                        <div class="divide-y divide-gray-100 dark:divide-gray-700 p-6 min-h-[300px]"
+                            id="cart-items-container">
+                            <div
+                                class="flex flex-col items-center justify-center h-full py-12 text-center text-gray-400">
+                                <span
+                                    class="material-icons text-6xl mb-4 text-gray-300 dark:text-gray-600">production_quantity_limits</span>
+                                <p class="text-lg">Tu carrito está vacío.</p>
+                                <p class="text-sm">¡Descubre nuestros tesoros para llenarlo!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="lg:w-1/3">
+                    <div
+                        class="bg-card-light dark:bg-card-dark p-8 rounded-2xl shadow-soft border border-gray-100 dark:border-gray-700 sticky top-32">
+                        <h3 class="text-xl font-bold mb-6 font-display text-gray-800 dark:text-white">Resumen del Pedido
+                        </h3>
+                        <div class="space-y-3 mb-6">
+                            <div class="flex justify-between text-gray-600 dark:text-gray-300">
+                                <span>Subtotal</span>
+                                <span class="font-bold" id="cart-subtotal">S/. 0.00</span>
+                            </div>
+                            <div class="flex justify-between text-gray-600 dark:text-gray-300">
+                                <span>Envío</span>
+                                <span class="text-primary font-bold" id="cart-shipping">Gratis</span>
+                            </div>
+                            <div class="h-px bg-gray-100 dark:bg-gray-700 my-4"></div>
+                            <div class="flex justify-between text-xl font-bold text-gray-800 dark:text-white">
+                                <span>Total</span>
+                                <span id="cart-total">S/. 0.00</span>
+                            </div>
+                        </div>
+                        <a class="block w-full bg-[#25D366] hover:bg-[#20bd5a] text-white py-4 rounded-xl font-bold text-center transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1 flex items-center justify-center gap-2"
+                            href="#" id="whatsapp-link" target="_blank">
+                            <span class="material-icons">message</span>
+                            Completar en WhatsApp
+                        </a>
+                        <p class="text-xs text-center text-gray-400 mt-4">Al hacer clic, serás redirigido a WhatsApp con
+                            los detalles de tu pedido.</p>
+                    </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
 
 
-    <section id="features" class="section-padding bg-cream">
-        <div class="container features-grid">
-            <div class="feature-card">
-                <i class="fa-solid fa-leaf"></i>
-                <h3>Algodón Orgánico</h3>
-                <p>Suave para la piel delicada de tus niños.</p>
-            </div>
-            <div class="feature-card">
-                <i class="fa-solid fa-truck-fast"></i>
-                <h3>Envío Rápido</h3>
-                <p>Recibe tus prendas en 24-48 horas.</p>
-            </div>
-            <div class="feature-card">
-                <i class="fa-solid fa-heart"></i>
-                <h3>Hecho con Amor</h3>
-                <p>Diseños pensados para la felicidad.</p>
-            </div>
-        </div>
-    </section>
+    <div id="product-modal"
+        class="fixed inset-0 bg-black/60 backdrop-blur-sm z-[100] hidden items-center justify-center p-4">
+        <div
+            class="bg-white dark:bg-gray-800 rounded-3xl max-w-4xl w-full max-h-[90vh] overflow-y-auto shadow-2xl relative animate-fade-in">
 
-
-    <section id="about" class="section-padding">
-        <div class="container about-container">
-            <div class="about-content">
-                <h2 class="section-title">Nuestra Historia</h2>
-                <p class="about-lead">En <strong>KakoiKids</strong>, creemos que la infancia es una aventura mágica que
-                    merece ser vivida con comodidad y estilo.</p>
-                <div class="about-text-columns">
-                    <p>Nacimos con un sueño simple: crear un universo de moda infantil que celebre la inocencia y la
-                        alegría de los más pequeños. Nos alejamos de lo complicado para abrazar lo esencial: tejidos
-                        suaves, colores inspirados en la naturaleza y diseños que permiten el movimiento libre.</p>
-                    <p>Cada prenda de nuestra colección es seleccionada pensando en la durabilidad y el respeto por la
-                        piel sensible de tus hijos. Porque sabemos que la ropa favorita es aquella con la que pueden
-                        jugar, explorar y soñar sin límites.</p>
-                </div>
-                <div class="about-signature">
-                    <p>Con amor,</p>
-                    <p class="signature-name">El equipo de KakoiKids</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-    <footer>
-        <div class="container footer-content">
-            <div class="footer-logo">KakoiKids</div>
-            <p>&copy; 2025 KakoiKids. Todos los derechos reservados.</p>
-            <div class="social-links">
-                <a href="https://www.instagram.com/pearkakoi/" target="_blank"><i
-                        class="fa-brands fa-instagram"></i></a>
-                <a href="https://www.facebook.com/profile.php?id=61554854860348" target="_blank"><i
-                        class="fa-brands fa-facebook"></i></a>
-            </div>
-        </div>
-    </footer>
-
-
-    <div id="cart-overlay" class="cart-overlay"></div>
-    <aside id="cart-sidebar" class="cart-sidebar">
-        <div class="cart-header">
-            <h3>Tu Carrito</h3>
-            <button id="close-cart" aria-label="Cerrar carrito"><i class="fa-solid fa-xmark"></i></button>
-        </div>
-        <div class="cart-items" id="cart-items">
-
-            <div class="empty-cart-msg">Tu carrito está vacío. ¡Llénalo de cosas lindas!</div>
-        </div>
-        <div class="cart-footer">
-            <div class="cart-total">
-                <span>Total:</span>
-                <span id="cart-total-price">$0.00</span>
-            </div>
-            <button id="checkout-btn" class="btn btn-primary btn-block">Finalizar Compra</button>
-            <button id="continue-shopping-btn" class="btn btn-secondary btn-block">Seguir Comprando</button>
-        </div>
-    </aside>
-
-  
-    <div id="product-modal-overlay" class="modal-overlay">
-        <div class="modal-content">
-            <button id="close-modal-btn" class="modal-close-btn" aria-label="Cerrar modal">
-                <i class="fa-solid fa-xmark"></i>
+            <button onclick="closeProductModal()"
+                class="absolute top-6 right-6 w-10 h-10 bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 rounded-full flex items-center justify-center transition-colors z-10">
+                <span class="material-icons text-gray-600 dark:text-gray-300">close</span>
             </button>
 
-            <div class="modal-gallery">
-                <div class="main-image-container">
-                    <img id="modal-main-image" src="" alt="Producto" class="modal-main-image">
-                </div>
-                <div id="modal-thumbnails" class="thumbnail-container">
-                   
-                </div>
-            </div>
+            <div class="grid md:grid-cols-2 gap-8 p-8">
 
-            <div class="modal-details">
-                <span id="modal-category" class="modal-category">Categoría</span>
-                <h2 id="modal-title" class="modal-title">Nombre del Producto</h2>
-                <div id="modal-price-container" class="modal-price-container">
-                 
+                <div class="space-y-4">
+
+                    <div class="bg-white dark:bg-gray-100 rounded-2xl overflow-hidden aspect-square">
+                        <img id="modal-main-image" src="" alt="" class="w-full h-full object-contain">
+                    </div>
+
+
+                    <div id="modal-thumbnails" class="flex gap-3">
+
+                    </div>
                 </div>
 
-                <p id="modal-description" class="modal-description">
-                    Descripción del producto...
-                </p>
 
-                <ul class="modal-features">
-                    <li><i class="fa-solid fa-check"></i> 100% Algodón Orgánico</li>
-                    <li><i class="fa-solid fa-check"></i> Hipoalergénico</li>
-                    <li><i class="fa-solid fa-check"></i> Lavable en máquina</li>
-                </ul>
+                <div class="flex flex-col">
 
-                <div class="modal-actions">
-                    <button id="modal-add-to-cart" class="btn btn-primary btn-block">
-                        <i class="fa-solid fa-cart-plus"></i> Agregar al Carrito
+                    <div class="mb-4">
+                        <p id="modal-category"
+                            class="text-sm font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-2">
+                            BEBÉ • 0-6M
+                        </p>
+                        <h2 id="modal-title" class="text-3xl md:text-4xl font-bold text-gray-800 dark:text-white mb-4">
+                            Body Amarillo Suave
+                        </h2>
+
+
+                        <div class="flex items-center gap-3 mb-6">
+                            <span id="modal-old-price" class="text-lg text-gray-400 line-through">S/. 59.00</span>
+                            <span id="modal-price" class="text-3xl font-bold text-accent-red">S/. 45.00</span>
+                        </div>
+                    </div>
+
+
+                    <p id="modal-description" class="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
+                        Un body de algodón pima 100% orgánico, diseñado para la máxima suavidad en la piel de tu bebé.
+                        Con broches libres de níquel y un color amarillo mantequilla ideal para cualquier ocasión.
+                    </p>
+
+
+                    <div class="space-y-3 mb-8">
+                        <div class="flex items-center gap-3 text-gray-600 dark:text-gray-300">
+                            <span class="material-icons text-primary text-xl">check_circle</span>
+                            <span>100% Algodón Orgánico</span>
+                        </div>
+                        <div class="flex items-center gap-3 text-gray-600 dark:text-gray-300">
+                            <span class="material-icons text-primary text-xl">check_circle</span>
+                            <span>Hipoalergénico</span>
+                        </div>
+                        <div class="flex items-center gap-3 text-gray-600 dark:text-gray-300">
+                            <span class="material-icons text-primary text-xl">check_circle</span>
+                            <span>Lavable en máquina</span>
+                        </div>
+                    </div>
+
+
+                    <button id="modal-add-to-cart" onclick="addToCartFromModal()"
+                        class="w-full bg-primary hover:bg-primary_dark text-white font-bold py-4 px-6 rounded-xl transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 flex items-center justify-center gap-2">
+                        <span class="material-icons">shopping_cart</span>
+                        Agregar al Carrito
                     </button>
                 </div>
             </div>
         </div>
     </div>
 
+
+    <div id="catalog-modal"
+        class="fixed inset-0 bg-black/60 backdrop-blur-sm z-[100] hidden items-center justify-center p-4">
+        <div
+            class="bg-white dark:bg-gray-800 rounded-3xl max-w-6xl w-full max-h-[90vh] overflow-y-auto shadow-2xl relative animate-fade-in">
+
+            <button onclick="closeCatalogModal()"
+                class="absolute top-6 right-6 w-10 h-10 bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 rounded-full flex items-center justify-center transition-colors z-10">
+                <span class="material-icons text-gray-600 dark:text-gray-300">close</span>
+            </button>
+
+            <div class="p-8">
+
+                <div class="text-center mb-6">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800 dark:text-white mb-2">Catálogo Completo</h2>
+                    <p class="text-gray-600 dark:text-gray-300">Descubre toda nuestra colección de ropa para niños</p>
+                </div>
+
+
+                <div
+                    class="bg-card-light dark:bg-card-dark p-4 rounded-xl shadow-sm mb-6 border border-gray-100 dark:border-gray-700">
+                    <div class="flex flex-col md:flex-row gap-4 items-center justify-between">
+
+                        <div class="flex flex-wrap items-center gap-2">
+                            <span
+                                class="text-sm font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider">Categoría:</span>
+                            <button onclick="filterCatalog('all')" id="filter-all"
+                                class="px-4 py-2 rounded-full bg-primary text-white text-sm font-medium shadow-sm transition-colors">
+                                Todos
+                            </button>
+                            <button onclick="filterCatalog('niño')" id="filter-niño"
+                                class="px-4 py-2 rounded-full bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 text-gray-600 dark:text-gray-300 text-sm font-medium transition-colors">
+                                Niños
+                            </button>
+                            <button onclick="filterCatalog('niña')" id="filter-niña"
+                                class="px-4 py-2 rounded-full bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 text-gray-600 dark:text-gray-300 text-sm font-medium transition-colors">
+                                Niñas
+                            </button>
+                            <button onclick="filterCatalog('bebé')" id="filter-bebé"
+                                class="px-4 py-2 rounded-full bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 text-gray-600 dark:text-gray-300 text-sm font-medium transition-colors">
+                                Bebés
+                            </button>
+                        </div>
+
+
+                        <div class="flex items-center gap-2">
+                            <span
+                                class="text-sm font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider">Precio:</span>
+                            <select onchange="filterByPrice(this.value)" id="price-filter"
+                                class="form-select border-none bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-200 rounded-lg py-2 px-4 focus:ring-2 focus:ring-primary text-sm font-medium">
+                                <option value="all">Todos</option>
+                                <option value="0-50">Hasta S/. 50</option>
+                                <option value="50-80">S/. 50 - S/. 80</option>
+                                <option value="80-100">S/. 80 - S/. 100</option>
+                                <option value="100+">Más de S/. 100</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" id="catalog-products">
+
+                </div>
+
+
+                <div id="no-results" class="hidden text-center py-12">
+                    <span class="material-icons text-6xl text-gray-300 dark:text-gray-600 mb-4">search_off</span>
+                    <p class="text-xl font-bold text-gray-600 dark:text-gray-300 mb-2">No se encontraron productos</p>
+                    <p class="text-sm text-gray-500">Intenta con otros filtros</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <section
+        class="py-20 bg-gradient-to-b from-white via-primary/5 to-white dark:from-gray-900 dark:via-primary/10 dark:to-gray-900 relative overflow-hidden"
+        id="faq">
+
+        <div class="absolute top-0 left-1/4 w-64 h-64 bg-primary/10 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-0 right-1/4 w-80 h-80 bg-secondary/10 rounded-full blur-3xl"></div>
+        <div class="container mx-auto px-6">
+
+            <div class="text-center mb-12">
+                <div
+                    class="inline-flex items-center gap-2 bg-primary/10 dark:bg-primary/20 px-4 py-2 rounded-full mb-4">
+                    <span class="material-icons text-primary text-sm">help</span>
+                    <span class="text-primary font-bold text-sm uppercase tracking-wider">FAQ</span>
+                </div>
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-800 dark:text-white mb-4">
+                    Preguntas Frecuentes
+                </h2>
+                <p class="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+                    Encuentra respuestas a las preguntas más comunes sobre nuestros productos y servicios
+                </p>
+            </div>
+
+
+            <div class="max-w-3xl mx-auto space-y-4">
+
+                <div
+                    class="bg-card-light dark:bg-card-dark rounded-2xl border border-gray-200 dark:border-gray-700 overflow-hidden">
+                    <button onclick="toggleFAQ(1)"
+                        class="w-full px-6 py-5 text-left flex items-center justify-between hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+                        <span class="font-bold text-gray-800 dark:text-white pr-4">¿De qué material están hechas las
+                            prendas?</span>
+                        <span class="material-icons text-primary transform transition-transform duration-300"
+                            id="faq-icon-1">expand_more</span>
+                    </button>
+                    <div id="faq-answer-1" class="hidden px-6 pb-5">
+                        <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+                            Todas nuestras prendas están confeccionadas con 100% algodón orgánico certificado. Este
+                            material es hipoalergénico,
+                            suave al tacto y perfecto para la piel sensible de los bebés y niños. Además, es
+                            transpirable y duradero.
+                        </p>
+                    </div>
+                </div>
+
+
+                <div
+                    class="bg-card-light dark:bg-card-dark rounded-2xl border border-gray-200 dark:border-gray-700 overflow-hidden">
+                    <button onclick="toggleFAQ(2)"
+                        class="w-full px-6 py-5 text-left flex items-center justify-between hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+                        <span class="font-bold text-gray-800 dark:text-white pr-4">¿Cuál es el tiempo de entrega?</span>
+                        <span class="material-icons text-primary transform transition-transform duration-300"
+                            id="faq-icon-2">expand_more</span>
+                    </button>
+                    <div id="faq-answer-2" class="hidden px-6 pb-5">
+                        <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+                            El tiempo de entrega varía según tu ubicación. En Lima Metropolitana, las entregas se
+                            realizan en 24-48 horas.
+                            Para provincias, el tiempo estimado es de 3-5 días hábiles. Ofrecemos envío gratis en
+                            compras mayores a S/. 50.
+                        </p>
+                    </div>
+                </div>
+
+
+                <div
+                    class="bg-card-light dark:bg-card-dark rounded-2xl border border-gray-200 dark:border-gray-700 overflow-hidden">
+                    <button onclick="toggleFAQ(3)"
+                        class="w-full px-6 py-5 text-left flex items-center justify-between hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+                        <span class="font-bold text-gray-800 dark:text-white pr-4">¿Puedo devolver o cambiar un
+                            producto?</span>
+                        <span class="material-icons text-primary transform transition-transform duration-300"
+                            id="faq-icon-3">expand_more</span>
+                    </button>
+                    <div id="faq-answer-3" class="hidden px-6 pb-5">
+                        <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+                            Sí, aceptamos cambios y devoluciones dentro de los 15 días posteriores a la compra. El
+                            producto debe estar sin usar,
+                            con etiquetas originales y en su empaque. Los cambios por talla son totalmente gratuitos.
+                        </p>
+                    </div>
+                </div>
+
+
+                <div
+                    class="bg-card-light dark:bg-card-dark rounded-2xl border border-gray-200 dark:border-gray-700 overflow-hidden">
+                    <button onclick="toggleFAQ(4)"
+                        class="w-full px-6 py-5 text-left flex items-center justify-between hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+                        <span class="font-bold text-gray-800 dark:text-white pr-4">¿Cómo sé qué talla elegir?</span>
+                        <span class="material-icons text-primary transform transition-transform duration-300"
+                            id="faq-icon-4">expand_more</span>
+                    </button>
+                    <div id="faq-answer-4" class="hidden px-6 pb-5">
+                        <p class="text-gray-600 dark:text-gray-400 leading-relaxed mb-3">
+                            Nuestras tallas se basan en la edad y peso del niño. Te recomendamos consultar nuestra guía
+                            de tallas:
+                        </p>
+                        <ul class="text-gray-600 dark:text-gray-400 space-y-2 ml-4">
+                            <li>• <strong>2Y</strong>: 2 años - 12-14 kg</li>
+                            <li>• <strong>4Y</strong>: 4 años - 16-18 kg</li>
+                            <li>• <strong>6Y</strong>: 6 años - 20-22 kg</li>
+                        </ul>
+                    </div>
+                </div>
+
+
+                <div
+                    class="bg-card-light dark:bg-card-dark rounded-2xl border border-gray-200 dark:border-gray-700 overflow-hidden">
+                    <button onclick="toggleFAQ(5)"
+                        class="w-full px-6 py-5 text-left flex items-center justify-between hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+                        <span class="font-bold text-gray-800 dark:text-white pr-4">¿Cómo debo lavar las prendas?</span>
+                        <span class="material-icons text-primary transform transition-transform duration-300"
+                            id="faq-icon-5">expand_more</span>
+                    </button>
+                    <div id="faq-answer-5" class="hidden px-6 pb-5">
+                        <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+                            Recomendamos lavar a máquina en agua fría (máximo 30°C) con colores similares. Usa
+                            detergente suave sin blanqueadores.
+                            Puedes secar en secadora a baja temperatura o al aire libre. No planchar directamente sobre
+                            estampados.
+                        </p>
+                    </div>
+                </div>
+
+
+                <div
+                    class="bg-card-light dark:bg-card-dark rounded-2xl border border-gray-200 dark:border-gray-700 overflow-hidden">
+                    <button onclick="toggleFAQ(6)"
+                        class="w-full px-6 py-5 text-left flex items-center justify-between hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+                        <span class="font-bold text-gray-800 dark:text-white pr-4">¿Qué métodos de pago aceptan?</span>
+                        <span class="material-icons text-primary transform transition-transform duration-300"
+                            id="faq-icon-6">expand_more</span>
+                    </button>
+                    <div id="faq-answer-6" class="hidden px-6 pb-5">
+                        <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+                            Aceptamos todos los métodos de pago: tarjetas de crédito y débito (Visa, Mastercard,
+                            American Express),
+                            transferencias bancarias, Yape, Plin y pago contra entrega en Lima Metropolitana.
+                        </p>
+                    </div>
+                </div>
+
+
+                <div
+                    class="bg-card-light dark:bg-card-dark rounded-2xl border border-gray-200 dark:border-gray-700 overflow-hidden">
+                    <button onclick="toggleFAQ(7)"
+                        class="w-full px-6 py-5 text-left flex items-center justify-between hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+                        <span class="font-bold text-gray-800 dark:text-white pr-4">¿Hacen envíos a todo el Perú?</span>
+                        <span class="material-icons text-primary transform transition-transform duration-300"
+                            id="faq-icon-7">expand_more</span>
+                    </button>
+                    <div id="faq-answer-7" class="hidden px-6 pb-5">
+                        <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+                            Sí, realizamos envíos a todo el Perú a través de agencias de courier confiables.
+                            El costo de envío se calcula automáticamente según tu ubicación al momento de finalizar la
+                            compra.
+                        </p>
+                    </div>
+                </div>
+
+
+                <div
+                    class="bg-card-light dark:bg-card-dark rounded-2xl border border-gray-200 dark:border-gray-700 overflow-hidden">
+                    <button onclick="toggleFAQ(8)"
+                        class="w-full px-6 py-5 text-left flex items-center justify-between hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+                        <span class="font-bold text-gray-800 dark:text-white pr-4">¿Cómo puedo contactarlos?</span>
+                        <span class="material-icons text-primary transform transition-transform duration-300"
+                            id="faq-icon-8">expand_more</span>
+                    </button>
+                    <div id="faq-answer-8" class="hidden px-6 pb-5">
+                        <p class="text-gray-600 dark:text-gray-400 leading-relaxed mb-3">
+                            Estamos disponibles para ayudarte a través de varios canales:
+                        </p>
+                        <ul class="text-gray-600 dark:text-gray-400 space-y-2 ml-4">
+                            <li>• WhatsApp: +51 983 475 884</li>
+                            <li>• Email: contacto@kakoikids.com</li>
+                            <li>• Redes sociales: @kakoikids</li>
+                            <li>• Horario: Lun-Sáb 9am-7pm</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="mt-16 text-center">
+                <div
+                    class="bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 rounded-3xl p-8 max-w-2xl mx-auto border border-green-100 dark:border-green-800">
+                    <div class="mb-4">
+                        <span class="material-icons text-5xl text-green-600 dark:text-green-400">help_outline</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-800 dark:text-white mb-2">
+                        ¿No encontraste lo que buscabas?
+                    </h3>
+                    <p class="text-gray-600 dark:text-gray-400 mb-6">
+                        Nuestro equipo está listo para ayudarte. Escríbenos y te responderemos en minutos.
+                    </p>
+                    <a href="https://wa.me/51983475884?text=¡Hola%20KakoiKids!%20👋%0A%0ATengo%20una%20consulta%20sobre%20sus%20productos.%20%0A%0A¿Podrían%20ayudarme?%20😊"
+                        target="_blank"
+                        class="group inline-flex items-center gap-3 bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-bold py-4 px-10 rounded-full shadow-lg shadow-green-500/30 hover:shadow-xl hover:shadow-green-500/50 transition-all duration-300 transform hover:-translate-y-1 hover:scale-105 relative overflow-hidden">
+
+                        <div
+                            class="absolute inset-0 bg-white/20 transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700">
+                        </div>
+
+
+                        <svg class="w-6 h-6 relative z-10" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                        </svg>
+
+                        <span class="relative z-10 text-lg">Contáctanos por WhatsApp</span>
+
+                        <span
+                            class="material-icons text-sm relative z-10 group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                    </a>
+
+
+                    <div class="mt-6 flex items-center justify-center gap-6 text-sm text-gray-500 dark:text-gray-400">
+                        <div class="flex items-center gap-2">
+                            <span class="material-icons text-green-600 dark:text-green-400 text-lg">check_circle</span>
+                            <span>Respuesta rápida</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="material-icons text-green-600 dark:text-green-400 text-lg">support_agent</span>
+                            <span>Atención personalizada</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <div id="terms-modal"
+        class="hidden fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+        <div class="bg-white dark:bg-gray-900 rounded-3xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-hidden">
+
+            <div class="bg-gradient-to-r from-primary to-primary_dark p-6 flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                    <span class="material-icons text-white text-3xl">description</span>
+                    <h2 class="text-2xl font-bold text-white">Términos y Condiciones</h2>
+                </div>
+                <button onclick="closeTermsModal()"
+                    class="text-white hover:bg-white/20 rounded-full p-2 transition-colors">
+                    <span class="material-icons">close</span>
+                </button>
+            </div>
+
+
+            <div class="p-8 overflow-y-auto max-h-[calc(90vh-100px)]">
+                <p class="text-gray-600 dark:text-gray-400 mb-6">
+                    Última actualización: Diciembre 2025
+                </p>
+
+
+                <div class="mb-8">
+                    <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-3 flex items-center gap-2">
+                        <span class="material-icons text-primary">info</span>
+                        1. Información General
+                    </h3>
+                    <p class="text-gray-600 dark:text-gray-400 leading-relaxed mb-3">
+                        Bienvenido a KakoiKids. Al acceder y utilizar este sitio web, aceptas cumplir con estos términos
+                        y condiciones.
+                        Si no estás de acuerdo con alguna parte de estos términos, no debes utilizar nuestro sitio web.
+                    </p>
+                    <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+                        KakoiKids se reserva el derecho de modificar estos términos en cualquier momento. Los cambios
+                        entrarán en vigor
+                        inmediatamente después de su publicación en el sitio web.
+                    </p>
+                </div>
+
+
+                <div class="mb-8">
+                    <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-3 flex items-center gap-2">
+                        <span class="material-icons text-primary">shopping_bag</span>
+                        2. Productos y Servicios
+                    </h3>
+                    <ul class="space-y-2 text-gray-600 dark:text-gray-400">
+                        <li class="flex gap-2">
+                            <span class="text-primary">•</span>
+                            <span>Todos nuestros productos están confeccionados con materiales de alta calidad y algodón
+                                orgánico certificado.</span>
+                        </li>
+                        <li class="flex gap-2">
+                            <span class="text-primary">•</span>
+                            <span>Las imágenes de los productos son referenciales. Los colores pueden variar ligeramente
+                                debido a la configuración de pantalla.</span>
+                        </li>
+                        <li class="flex gap-2">
+                            <span class="text-primary">•</span>
+                            <span>Nos reservamos el derecho de limitar las cantidades de productos disponibles y
+                                descontinuar productos sin previo aviso.</span>
+                        </li>
+                    </ul>
+                </div>
+
+
+                <div class="mb-8">
+                    <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-3 flex items-center gap-2">
+                        <span class="material-icons text-primary">payment</span>
+                        3. Precios y Pagos
+                    </h3>
+                    <ul class="space-y-2 text-gray-600 dark:text-gray-400">
+                        <li class="flex gap-2">
+                            <span class="text-primary">•</span>
+                            <span>Todos los precios están expresados en Soles Peruanos (S/.) e incluyen IGV.</span>
+                        </li>
+                        <li class="flex gap-2">
+                            <span class="text-primary">•</span>
+                            <span>Aceptamos tarjetas de crédito, débito, transferencias bancarias, Yape y Plin.</span>
+                        </li>
+                        <li class="flex gap-2">
+                            <span class="text-primary">•</span>
+                            <span>Los precios pueden cambiar sin previo aviso, pero se respetará el precio vigente al
+                                momento de la compra.</span>
+                        </li>
+                    </ul>
+                </div>
+
+
+                <div class="mb-8">
+                    <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-3 flex items-center gap-2">
+                        <span class="material-icons text-primary">local_shipping</span>
+                        4. Envíos y Entregas
+                    </h3>
+                    <ul class="space-y-2 text-gray-600 dark:text-gray-400">
+                        <li class="flex gap-2">
+                            <span class="text-primary">•</span>
+                            <span>Realizamos envíos a todo el Perú a través de agencias de courier confiables.</span>
+                        </li>
+                        <li class="flex gap-2">
+                            <span class="text-primary">•</span>
+                            <span>Los tiempos de entrega son estimados: 24-48 horas en Lima y 3-5 días hábiles en
+                                provincias.</span>
+                        </li>
+                        <li class="flex gap-2">
+                            <span class="text-primary">•</span>
+                            <span>Envío gratis en compras mayores a S/. 50 en Lima Metropolitana.</span>
+                        </li>
+                    </ul>
+                </div>
+
+
+                <div class="mb-8">
+                    <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-3 flex items-center gap-2">
+                        <span class="material-icons text-primary">autorenew</span>
+                        5. Cambios y Devoluciones
+                    </h3>
+                    <ul class="space-y-2 text-gray-600 dark:text-gray-400">
+                        <li class="flex gap-2">
+                            <span class="text-primary">•</span>
+                            <span>Aceptamos cambios y devoluciones dentro de los 15 días posteriores a la compra.</span>
+                        </li>
+                        <li class="flex gap-2">
+                            <span class="text-primary">•</span>
+                            <span>Los productos deben estar sin usar, con etiquetas originales y en su empaque.</span>
+                        </li>
+                        <li class="flex gap-2">
+                            <span class="text-primary">•</span>
+                            <span>Los cambios por talla son totalmente gratuitos.</span>
+                        </li>
+                        <li class="flex gap-2">
+                            <span class="text-primary">•</span>
+                            <span>Los gastos de envío para devoluciones corren por cuenta del cliente, excepto en caso
+                                de productos defectuosos.</span>
+                        </li>
+                    </ul>
+                </div>
+
+
+                <div class="mb-8">
+                    <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-3 flex items-center gap-2">
+                        <span class="material-icons text-primary">verified</span>
+                        6. Garantía de Calidad
+                    </h3>
+                    <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+                        Garantizamos la calidad de nuestros productos. Si encuentras algún defecto de fabricación,
+                        contáctanos dentro de los 30 días posteriores a la compra para un reemplazo o reembolso
+                        completo.
+                    </p>
+                </div>
+
+
+                <div class="mb-8">
+                    <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-3 flex items-center gap-2">
+                        <span class="material-icons text-primary">gavel</span>
+                        7. Responsabilidad del Usuario
+                    </h3>
+                    <ul class="space-y-2 text-gray-600 dark:text-gray-400">
+                        <li class="flex gap-2">
+                            <span class="text-primary">•</span>
+                            <span>Debes proporcionar información precisa y actualizada al realizar un pedido.</span>
+                        </li>
+
+                        <li class="flex gap-2">
+                            <span class="text-primary">•</span>
+                            <span>No debes utilizar nuestro sitio web para fines ilegales o no autorizados.</span>
+                        </li>
+                    </ul>
+                </div>
+
+
+                <div class="bg-primary/5 dark:bg-primary/10 rounded-2xl p-6 border border-primary/20">
+                    <h3 class="text-lg font-bold text-gray-800 dark:text-white mb-3 flex items-center gap-2">
+                        <span class="material-icons text-primary">contact_support</span>
+                        ¿Tienes dudas?
+                    </h3>
+                    <p class="text-gray-600 dark:text-gray-400 mb-4">
+                        Si tienes alguna pregunta sobre nuestros términos y condiciones, no dudes en contactarnos:
+                    </p>
+                    <div class="space-y-2 text-sm">
+                        <p class="text-gray-600 dark:text-gray-400">
+                            <strong>Email:</strong> contacto@kakoikids.com
+                        </p>
+                        <p class="text-gray-600 dark:text-gray-400">
+                            <strong>WhatsApp:</strong> +51 983 475 884
+                        </p>
+                        <p class="text-gray-600 dark:text-gray-400">
+                            <strong>Horario:</strong> Lun-Sáb 9am-7pm
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-200 dark:border-gray-700 p-6 bg-gray-50 dark:bg-gray-800">
+                <button onclick="closeTermsModal()"
+                    class="w-full bg-primary hover:bg-primary_dark text-white font-bold py-3 px-6 rounded-full transition-colors">
+                    Entendido
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+    <footer
+        class="bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-950 border-t border-gray-200 dark:border-gray-800 pt-16 pb-8 mt-auto">
+        <div class="container mx-auto px-6">
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+
+                <div class="text-center md:text-left">
+                    <a href="#" class="logo inline-block mb-4" onclick="showHome(); return false;">
+                        KakoiKids
+                        <i class="fa-solid fa-leaf"></i>
+                    </a>
+                    <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-4">
+                        Vistiendo sonrisas con amor. Ropa de calidad para los más pequeños.
+                    </p>
+
+                    <div class="space-y-2 text-sm text-gray-600 dark:text-gray-400">
+                        <div class="flex items-center justify-center md:justify-start gap-2">
+                            <span class="material-icons text-primary text-lg">mail</span>
+                            <span>contacto@kakoikids.com</span>
+                        </div>
+                        <div class="flex items-center justify-center md:justify-start gap-2">
+                            <span class="material-icons text-primary text-lg">phone</span>
+                            <span>+51 983 475 884</span>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="text-center">
+                    <h4 class="text-gray-800 dark:text-white font-bold text-lg mb-4">Enlaces Rápidos</h4>
+                    <ul class="space-y-2">
+                        <li>
+                            <a href="#shop"
+                                class="text-gray-600 dark:text-gray-400 hover:text-primary transition-colors text-sm">
+                                Tienda
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#about"
+                                class="text-gray-600 dark:text-gray-400 hover:text-primary transition-colors text-sm">
+                                Sobre Nosotros
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" onclick="openCatalogModal(); return false;"
+                                class="text-gray-600 dark:text-gray-400 hover:text-primary transition-colors text-sm">
+                                Catálogo Completo
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#faq"
+                                class="text-gray-600 dark:text-gray-400 hover:text-primary transition-colors text-sm">
+                                Preguntas Frecuentes
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+
+                <div class="text-center md:text-right">
+                    <h4 class="text-gray-800 dark:text-white font-bold text-lg mb-4">Síguenos</h4>
+                    <p class="text-gray-600 dark:text-gray-400 text-sm mb-4">
+                        Únete a nuestra comunidad
+                    </p>
+                    <div class="flex gap-4 justify-center md:justify-end mb-4">
+
+                        <a href="https://www.instagram.com/pearkakoi/" target="_blank"
+                            class="w-12 h-12 rounded-full bg-gradient-to-br from-pink-500 to-purple-600 flex items-center justify-center text-white hover:scale-110 hover:shadow-xl transition-all duration-300 group relative">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                            </svg>
+                            <span
+                                class="absolute -bottom-8 left-1/2 -translate-x-1/2 bg-gray-900 dark:bg-gray-700 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">Instagram</span>
+                        </a>
+
+                        <a href="https://www.facebook.com/profile.php?id=61554854860348" target="_blank"
+                            class="w-12 h-12 rounded-full bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center text-white hover:scale-110 hover:shadow-xl transition-all duration-300 group relative">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                            </svg>
+                            <span
+                                class="absolute -bottom-8 left-1/2 -translate-x-1/2 bg-gray-900 dark:bg-gray-700 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">Facebook</span>
+                        </a>
+
+                        <a href="https://www.tiktok.com/@kakoikids" target="_blank"
+                            class="w-12 h-12 rounded-full bg-gradient-to-br from-gray-800 to-black flex items-center justify-center text-white hover:scale-110 hover:shadow-xl transition-all duration-300 group relative">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z" />
+                            </svg>
+                            <span
+                                class="absolute -bottom-8 left-1/2 -translate-x-1/2 bg-gray-900 dark:bg-gray-700 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">TikTok</span>
+                        </a>
+                    </div>
+
+                    <div
+                        class="flex flex-wrap items-center justify-center md:justify-end gap-4 text-xs text-gray-500 dark:text-gray-400">
+                        <div class="flex items-center gap-1">
+                            <span class="material-icons text-primary text-sm">verified_user</span>
+                            <span>Pago Seguro</span>
+                        </div>
+                        <div class="flex items-center gap-1">
+                            <span class="material-icons text-primary text-sm">local_shipping</span>
+                            <span>Envío Gratis</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="border-t border-gray-200 dark:border-gray-800 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left">
+                    <p class="text-sm text-gray-500 dark:text-gray-400">
+                        © 2025 <span class="font-bold text-primary">KakoiKids</span>. Todos los derechos reservados.
+                    </p>
+                    <div class="flex flex-wrap justify-center gap-6 text-xs text-gray-500 dark:text-gray-400">
+                        <a href="#" onclick="openTermsModal(); return false;"
+                            class="hover:text-primary transition-colors">Términos y Condiciones</a>
+                        <span class="hidden md:inline text-gray-300 dark:text-gray-700">•</span>
+                        <a href="#" class="hover:text-primary transition-colors">Política de Privacidad</a>
+                        <span class="hidden md:inline text-gray-300 dark:text-gray-700">•</span>
+                        <a href="#" class="hover:text-primary transition-colors">Política de Cookies</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
     <script src="script.js"></script>
+
+
+
+    <a href="https://wa.me/51983475884?text=¡Hola%20KakoiKids!%20👋✨%0A%0AMe%20encantaría%20conocer%20más%20sobre%20sus%20productos%20para%20niños.%20%0A%0A¿Tienen%20alguna%20promoción%20disponible?%20😊"
+        target="_blank" class="fixed bottom-6 right-6 z-50 group" aria-label="Contactar por WhatsApp">
+        <div class="relative">
+
+            <div class="absolute inset-0 bg-green-500 rounded-full animate-ping opacity-75"></div>
+
+
+            <div
+                class="relative w-16 h-16 bg-gradient-to-br from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 rounded-full shadow-2xl flex items-center justify-center transform transition-all duration-300 group-hover:scale-110">
+
+                <svg class="w-9 h-9 text-white" fill="currentColor" viewBox="0 0 24 24">
+                    <path
+                        d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                </svg>
+            </div>
+
+
+            <div
+                class="absolute right-full mr-3 top-1/2 -translate-y-1/2 bg-gray-900 dark:bg-gray-800 text-white px-4 py-2 rounded-lg shadow-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap pointer-events-none">
+                <p class="text-sm font-medium">¿Necesitas ayuda?</p>
+                <p class="text-xs opacity-75">Chatea con nosotros</p>
+
+                <div class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-full">
+                    <div
+                        class="w-0 h-0 border-t-8 border-t-transparent border-b-8 border-b-transparent border-l-8 border-l-gray-900 dark:border-l-gray-800">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </a>
+
 </body>
 
 </html>
+
+</html>
+
