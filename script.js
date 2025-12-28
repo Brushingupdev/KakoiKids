@@ -1,5 +1,8 @@
 
-let cart = [];
+let cart = JSON.parse(localStorage.getItem('kakoikids_cart')) || [];
+function saveCartToLocalStorage() {
+    localStorage.setItem('kakoikids_cart', JSON.stringify(cart));
+}
 
 function addToCart(title, price, image) {
     const existingItem = cart.find(item => item.title === title);
@@ -10,12 +13,14 @@ function addToCart(title, price, image) {
         cart.push({ title, price, image, quantity: 1 });
     }
 
+    saveCartToLocalStorage();
     updateCartUI();
     showNotification(`¡<b>${title}</b> agregado al carrito!`);
 }
 
 function removeFromCart(title) {
     cart = cart.filter(item => item.title !== title);
+    saveCartToLocalStorage();
     renderCartItems();
     updateCartBadge();
 }
@@ -26,6 +31,7 @@ function updateQuantity(title, change) {
         const newQuantity = item.quantity + change;
         if (newQuantity >= 1) {
             item.quantity = newQuantity;
+            saveCartToLocalStorage();
             renderCartItems();
             updateCartBadge();
         }
@@ -39,13 +45,19 @@ function updateCartUI() {
 
 function updateCartBadge() {
     const badge = document.getElementById('cart-badge');
+    if (!badge) return;
+
     const count = cart.reduce((sum, item) => sum + item.quantity, 0);
     badge.innerText = count;
+
     if (count > 0) {
         badge.classList.remove('scale-0');
+        badge.classList.add('scale-100');
     } else {
+        badge.classList.remove('scale-100');
         badge.classList.add('scale-0');
     }
+
     badge.classList.add('scale-125');
     setTimeout(() => badge.classList.remove('scale-125'), 200);
 }
@@ -540,6 +552,8 @@ let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
 
 function updateWishlistBadge() {
     const badge = document.getElementById('wishlist-badge');
+    if (!badge) return;
+
     if (wishlist.length > 0) {
         badge.textContent = wishlist.length;
         badge.classList.add('scale-100');
@@ -605,4 +619,7 @@ function showToast(message, type = 'success') {
     }, 3000);
 }
 
-updateWishlistBadge();
+document.addEventListener('DOMContentLoaded', () => {
+    updateWishlistBadge();
+    updateCartUI();
+});
