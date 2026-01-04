@@ -15,6 +15,7 @@ function addToCart(title, price, image) {
 
     saveCartToLocalStorage();
     updateCartUI();
+    updateProductButtons();
     showNotification(`¡<b>${title}</b> agregado al carrito!`);
 }
 
@@ -23,6 +24,65 @@ function removeFromCart(title) {
     saveCartToLocalStorage();
     renderCartItems();
     updateCartBadge();
+    updateProductButtons();
+}
+
+// Función toggle para agregar o quitar del carrito
+function toggleCart(title, price, image) {
+    const existingItem = cart.find(item => item.title === title);
+
+    if (existingItem) {
+        // Si ya está en el carrito, lo quitamos
+        cart = cart.filter(item => item.title !== title);
+        saveCartToLocalStorage();
+        updateCartUI();
+        updateProductButtons();
+        showNotification(`<b>${title}</b> eliminado del carrito`);
+    } else {
+        // Si no está, lo agregamos
+        cart.push({ title, price, image, quantity: 1 });
+        saveCartToLocalStorage();
+        updateCartUI();
+        updateProductButtons();
+        showNotification(`¡<b>${title}</b> agregado al carrito!`);
+    }
+}
+
+// Función para verificar si un producto está en el carrito
+function isInCart(title) {
+    return cart.some(item => item.title === title);
+}
+
+// Función para actualizar el estado visual de todos los botones de productos
+function updateProductButtons() {
+    const productCards = document.querySelectorAll('[data-product-size]');
+
+    productCards.forEach(card => {
+        const button = card.querySelector('button[data-product-title]');
+        if (button) {
+            const title = button.getAttribute('data-product-title');
+            updateButtonState(button, isInCart(title));
+        }
+    });
+}
+
+// Función para actualizar el estado visual de un botón específico
+function updateButtonState(button, isSelected) {
+    if (isSelected) {
+        button.classList.remove('bg-gray-50', 'dark:bg-gray-700', 'hover:bg-primary', 'text-gray-700', 'dark:text-gray-200', 'border-gray-200', 'dark:border-gray-600');
+        button.classList.add('bg-primary', 'text-white', 'border-primary');
+        button.innerHTML = `
+            <span class="material-icons text-sm">check_circle</span>
+            Agregado
+        `;
+    } else {
+        button.classList.remove('bg-primary', 'text-white', 'border-primary');
+        button.classList.add('bg-gray-50', 'dark:bg-gray-700', 'hover:bg-primary', 'hover:text-white', 'text-gray-700', 'dark:text-gray-200', 'border-gray-200', 'dark:border-gray-600');
+        button.innerHTML = `
+            <span class="material-icons text-sm">shopping_cart</span>
+            Agregar
+        `;
+    }
 }
 
 function updateQuantity(title, change) {
@@ -370,92 +430,67 @@ document.addEventListener('keydown', (e) => {
 
 const catalogProducts = [
     {
-        title: 'Pantalón Denim Suave',
-        category: 'NIÑO • 3-5Y',
-        description: 'Mezclilla suave con cintura elástica.',
-        price: 79.00,
-        image: 'https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?w=400&h=400&fit=crop'
+        title: 'Polo MNARA',
+        category: 'NIÑO • 4Y',
+        description: 'Polo blanco con mangas de diseño geométrico naranja. 100% algodón orgánico.',
+        price: 29.90,
+        image: 'Polo-MNARA-4Y.jpeg'
     },
     {
-        title: 'Falda Tul Rosa',
-        category: 'NIÑA • 2-4Y',
-        description: 'Tul rosa pastel, ideal para ocasiones especiales.',
-        price: 69.00,
-        oldPrice: 89.00,
-        image: 'https://images.unsplash.com/photo-1518831959646-742c3a14ebf7?w=400&h=400&fit=crop'
+        title: 'Polo MRAYSM',
+        category: 'NIÑO • 6Y',
+        description: 'Polo color vanilla con diseño moderno y cómodo. Suave y transpirable.',
+        price: 29.90,
+        image: 'Polo-MRAYSM-6Y.jpeg'
     },
     {
-        title: 'Conjunto Deportivo',
-        category: 'NIÑO • 4-6Y',
-        description: 'Set sudadera + pantalón transpirable.',
-        price: 95.00,
-        image: 'https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?w=400&h=400&fit=crop'
+        title: 'Polo MRAYS',
+        category: 'NIÑO • 4Y',
+        description: 'Polo bicolor blanco con mangas vanilla. Fresco y cómodo.',
+        price: 29.90,
+        image: 'Polo-MRAYS-4Y.jpeg'
     },
     {
-        title: 'Pijama Estrellitas',
-        category: 'BEBÉ • 6-12M',
-        description: 'Algodón orgánico suave y cómodo.',
-        price: 55.00,
-        image: 'https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?w=400&h=400&fit=crop'
+        title: 'Polo MPLOM 4Y',
+        category: 'NIÑO • 4Y',
+        description: 'Diseño elegante color vanilla. 100% algodón orgánico.',
+        price: 29.90,
+        image: 'Polo-MPLOM-4Y.jpeg'
     },
     {
-        title: 'Chaqueta Acolchada',
-        category: 'NIÑA • 3-5Y',
-        description: 'Ligera y resistente al agua.',
-        price: 120.00,
-        oldPrice: 150.00,
-        image: 'https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=400&h=400&fit=crop'
+        title: 'Polo MPLOM 6Y',
+        category: 'NIÑO • 6Y',
+        description: 'Polo elegante en talla 6Y. Suave y transpirable.',
+        price: 29.90,
+        image: 'Polo-MPLOM-6Y.jpeg'
     },
     {
-        title: 'Shorts Playeros',
-        category: 'NIÑO • 2-4Y',
-        description: 'Secado rápido, ideal para playa.',
-        price: 45.00,
-        image: 'https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?w=400&h=400&fit=crop'
+        title: 'Polo MFLOR 4Y',
+        category: 'NIÑO • 4Y',
+        description: 'Diseño floral moderno. 100% algodón orgánico.',
+        price: 29.90,
+        image: 'Polo-MFLOR-4Y.jpeg'
     },
     {
-        title: 'Vestido Lunares',
-        category: 'NIÑA • 1-3Y',
-        description: 'Clásico con lazo en la cintura.',
-        price: 75.00,
-        image: 'https://images.unsplash.com/photo-1596783074918-c84cb06531ca?w=400&h=400&fit=crop'
+        title: 'Polo MFLOR 6Y',
+        category: 'NIÑO • 6Y',
+        description: 'Estilo floral único en talla grande. Suave y cómodo.',
+        price: 29.90,
+        image: 'Polo-MFLOR-6Y.jpeg'
     },
     {
-        title: 'Suéter Rayas',
-        category: 'NIÑO • 3-5Y',
-        description: 'Punto suave y abrigador.',
-        price: 85.00,
-        oldPrice: 100.00,
-        image: 'https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?w=400&h=400&fit=crop'
+        title: 'Polo RDM 2Y',
+        category: 'NIÑO • 2Y',
+        description: 'Diseño clásico para los más pequeños. Muy suave.',
+        price: 29.90,
+        image: 'Polo-RDM-2Y.jpeg'
     },
     {
-        title: 'Leggings Flores',
-        category: 'NIÑA • 2-4Y',
-        description: 'Elásticos con estampado floral.',
-        price: 39.00,
-        image: 'https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?w=400&h=400&fit=crop'
-    },
-    {
-        title: 'Camisa Cuadros',
-        category: 'NIÑO • 4-6Y',
-        description: 'Algodón con botones de madera.',
-        price: 65.00,
-        image: 'https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=400&h=400&fit=crop'
-    },
-    {
-        title: 'Enterizo Conejito',
-        category: 'BEBÉ • 0-6M',
-        description: 'Adorable diseño, fácil de cambiar.',
-        price: 59.00,
-        image: 'https://images.unsplash.com/photo-1522771930-78848d9293e8?w=400&h=400&fit=crop'
-    },
-    {
-        title: 'Gorro Pompón',
-        category: 'NIÑO/NIÑA • 1-5Y',
-        description: 'Tejido suave con pompón decorativo.',
-        price: 29.00,
-        oldPrice: 35.00,
-        image: 'https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?w=400&h=400&fit=crop'
+        title: 'Polo RDM 6Y',
+        category: 'NIÑO • 6Y',
+        description: 'Clásico y elegante. Perfecto para el día a día.',
+        price: 29.90,
+        image: 'Polo-RDM-6Y.jpeg'
     }
 ];
 
@@ -478,6 +513,13 @@ function renderCatalogProducts(products) {
     noResults.classList.add('hidden');
 
     products.forEach(product => {
+        const inCart = isInCart(product.title);
+        const buttonClass = inCart
+            ? 'bg-primary text-white border-primary'
+            : 'bg-gray-50 dark:bg-gray-700 hover:bg-primary hover:text-white text-gray-700 dark:text-gray-200 border-gray-200 dark:border-gray-600';
+        const buttonIcon = inCart ? 'check_circle' : 'add_shopping_cart';
+        const buttonText = inCart ? 'Agregado' : '';
+
         const productCard = `
                     <div class="catalog-product-card bg-card-light dark:bg-card-dark rounded-xl overflow-hidden shadow-soft hover:shadow-xl transition-all duration-300 border border-gray-100 dark:border-gray-800">
                         <div class="catalog-product-image relative aspect-square overflow-hidden bg-gray-100 dark:bg-gray-800 cursor-pointer" onclick="expandCatalogImage('${product.image}', '${product.title}')">
@@ -494,9 +536,11 @@ function renderCatalogProducts(products) {
                                     ${product.oldPrice ? `<span class="text-xs text-gray-400 line-through mr-1">S/. ${product.oldPrice.toFixed(2)}</span>` : ''}
                                     <span class="text-lg font-bold ${product.oldPrice ? 'text-accent-red' : 'text-primary'}">S/. ${product.price.toFixed(2)}</span>
                                 </div>
-                                <button onclick="addToCart('${product.title}', ${product.price}, '${product.image}')" 
-                                    class="bg-primary hover:bg-primary_dark text-white px-3 py-2 rounded-lg text-sm font-semibold flex items-center gap-1 transition-colors active:scale-95">
-                                    <span class="material-icons text-sm">add_shopping_cart</span>
+                                <button onclick="toggleCatalogCart('${product.title}', ${product.price}, '${product.image}')" 
+                                    data-catalog-product="${product.title}"
+                                    class="${buttonClass} px-3 py-2 rounded-lg text-sm font-semibold flex items-center gap-1 transition-colors active:scale-95 border">
+                                    <span class="material-icons text-sm">${buttonIcon}</span>
+                                    ${buttonText}
                                 </button>
                             </div>
                         </div>
@@ -504,6 +548,13 @@ function renderCatalogProducts(products) {
                 `;
         container.innerHTML += productCard;
     });
+}
+
+// Función toggle específica para el catálogo modal
+function toggleCatalogCart(title, price, image) {
+    toggleCart(title, price, image);
+    // Re-renderizar los productos del catálogo para actualizar el estado visual
+    renderCatalogProducts(getFilteredProducts());
 }
 
 function expandCatalogImage(imageSrc, imageAlt) {
@@ -700,4 +751,6 @@ function showToast(message, type = 'success') {
 document.addEventListener('DOMContentLoaded', () => {
     updateWishlistBadge();
     updateCartUI();
+    updateProductButtons();
 });
+
